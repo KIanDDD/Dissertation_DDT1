@@ -1,0 +1,60 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.venv/
+venv/
+.env
+.env.*
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Model weights and external caches
+.cache/
+huggingface/
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+
+# Proprietary / large molecular-simulation material
+*.cms
+*.mae
+*.maegz
+*.prj/
+*_trj/
+*.dtr
+*.ene
+
+# Gaussian raw or checkpoint material
+*.gjf
+*.com
+*.chk
+*.fchk
+*.rwf
+*.log
+
+# Large archives and private source packages
+*.zip
+*.7z
+*.tar
+*.tar.gz
+private/
+raw/
+source_private/
+
+# Temporary outputs
+scratch/
+tmp/
+temp/
+
+# Generated validation figures
+scripts/figures/Figure*.png
+scripts/figures/Figure*.svg
+scripts/figures/Figure*.pdf

@@ -1,0 +1,5 @@
+N_waters,cluster_atoms_tacrine_plus_Nwaters,clean_candidate_frames,nth_distance_mean_A,nth_distance_median_A,nth_distance_p95_A,nth_distance_max_A,mean_selected_distance_A,max_selected_distance_median_A,interpretation
+8,54,9982,3.4144,3.4122,3.5627,3.8352,3.1897,3.4122,small; likely DFT-feasible; may miss some second-contact waters
+12,66,9982,3.5701,3.5656,3.7287,3.9966,3.2977,3.5656,small; likely DFT-feasible; may miss some second-contact waters
+16,78,9982,3.7125,3.7067,3.8855,4.2198,3.3881,3.7067,balanced; likely good microhydration candidate
+20,90,9982,3.8590,3.8536,4.0559,4.3885,3.4712,3.8536,larger; more complete hydration but higher DFT cost

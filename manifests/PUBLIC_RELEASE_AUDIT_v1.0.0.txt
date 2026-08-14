@@ -1,0 +1,17 @@
+CHE701P Dissertation_DDT1 public release audit
+Repository: KIanDDD/Dissertation_DDT1
+Release: v1.0.0
+
+PASS: clean release rebuilt from the known-good FINAL_FOR_AUDIT package
+PASS: required public derived data present
+PASS: 100 N16 XYZ structures present; each declares 78 atoms
+PASS: Figures 7/8, 9/10 and 11 public plotting workflows executed successfully
+PASS: Figure 11 random baseline uses realised fractions 13/244, 25/244 and 49/244
+PASS: blocked raw/proprietary/model/archive file types absent
+PASS: no Python bytecode/cache retained
+PASS: no private Windows/OneDrive project paths remain in scanned public text
+PASS: no obvious credential-like values detected by the local pre-push scan
+PASS: regular files are below GitHub's 100 MiB hard file-size limit
+PASS: CITATION.cff points to KIanDDD/Dissertation_DDT1 and declares v1.0.0
+
+Note: this local audit is an additional safeguard and does not replace GitHub platform security checks.

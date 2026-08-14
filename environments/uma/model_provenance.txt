@@ -1,0 +1,12 @@
+﻿Model API identifier: uma-s-1p2
+FairChem task: omol
+Device: CPU
+N16 total charge: +1
+N16 spin multiplicity: 1
+N16 atom count: 78
+N16 composition: C13 H47 N2 O16
+Model access source: facebook/UMA on Hugging Face
+Related training dataset: OMol25
+Full OMol25 dataset downloaded: No
+Direct OMol25 eSEN checkpoint used: No
+

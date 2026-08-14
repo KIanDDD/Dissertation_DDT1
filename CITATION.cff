@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it using the metadata below."
+title: "Tacrine microhydration MLFF reproducibility code"
+type: software
+authors:
+  - family-names: "Davarpanah"
+    given-names: "Kian"
+    affiliation: "Queen Mary University of London"
+version: "1.0.0"
+repository-code: "https://github.com/KIanDDD/Dissertation_DDT1"
+url: "https://github.com/KIanDDD/Dissertation_DDT1"
+abstract: >-
+  Author-developed analysis and reproducibility code supporting the CHE701P MSc
+  dissertation Accelerating Molecular Simulations with MLFFs, including tacrine
+  microhydration analysis, pretrained-MLFF inference, Gaussian-path processing,
+  benchmarking and disagreement-based retrospective prioritisation.
+keywords:
+  - machine-learned force fields
+  - molecular simulation
+  - microhydration
+  - tacrine
+  - reproducibility

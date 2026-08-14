@@ -1,0 +1,7 @@
+scope,indicator,target_error,n_structures,pearson_r,spearman_rho
+AIMNet2 ensemble,AIMNet2 energy ensemble std,AIMNet2 absolute relative-energy error,244,0.5390074812819757,-0.17459160956428715
+AIMNet2 ensemble,AIMNet2 force-vector disagreement RMS,AIMNet2 force-vector RMSE,244,0.41406692495119807,0.21434808288828586
+AIMNet2 ensemble,AIMNet2 maximum atomic force disagreement,AIMNet2 maximum atomic force-vector error,244,0.3544460770520294,-0.048310471729675473
+MACE-AIMNet2-UMA,Cross-model relative-energy std,Mean absolute relative-energy error across models,244,0.876422722791474,0.8817210430012928
+MACE-AIMNet2-UMA,Cross-model force disagreement RMS,Mean force-vector RMSE across models,244,0.001714761580173087,-0.046218851839460735
+MACE-AIMNet2-UMA,Cross-model maximum atomic force disagreement,Maximum atomic force error across models,244,-0.08205088131164125,0.2346670301393174

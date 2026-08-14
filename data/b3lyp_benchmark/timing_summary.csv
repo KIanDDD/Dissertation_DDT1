@@ -1,0 +1,4 @@
+workflow,device,geometry_count,member_evaluation_count,model_load_seconds,calculation_or_wall_seconds,seconds_per_geometry,geometries_per_second,notes
+MACE-OFF23-medium,CPU,244,244,0.18803209997713566,267.3090268999804,1.0955287987704114,0.9128011980354783,Single MACE model; no explicit molecular charge input.
+AIMNet2 four-member ensemble,"CPU, eager execution",244,976,1.2248679001349956,100.83221969986334,0.41324680204862024,2.4198614364167437,Four member predictions per geometry; total charge +1; TORCH_COMPILE_DISABLE=1.
+UMA-S/OMol,CPU,244,244,8.654312699800357,406.86762359994464,1.6674902606555109,0.5997036526059755,Charge +1 and singlet multiplicity 1.
