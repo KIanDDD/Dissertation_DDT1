@@ -1,0 +1,36 @@
+﻿PUBLIC RELEASE AUDIT v1.1.0
+Generated: 2026-08-15 11:52:16 +01:00
+
+Repository:
+KIanDDD/Dissertation_DDT1
+
+Release scope:
+Final CHE701P dissertation reproducibility release including the same-configuration
+100-structure B3LYP/6-31G(d) energetic-ordering benchmark.
+
+Scientific checks:
+- 100 MD-derived N16 ranking records: PASS
+- 100 Gaussian QC records: PASS
+- all Gaussian calculations normally terminated: PASS
+- B3LYP/6-31G(d) Force route: PASS
+- charge +1, multiplicity 1: PASS
+- 78 atoms per structure: PASS
+- one SCF energy per structure: PASS
+- complete atomic-force blocks: PASS
+- canonical structure/model hash correspondence: PASS
+- B3LYP minimum structure 57: PASS
+- shared pretrained-model minimum structure 13: PASS
+- final rank statistics verified by public Figure 7 script: PASS
+
+Public/private boundary:
+- raw supervisor-supplied Gaussian archive: NOT REDISTRIBUTED
+- raw Gaussian log/checkpoint files: NOT REDISTRIBUTED
+- proprietary Schrodinger/Desmond files: NOT REDISTRIBUTED
+- pretrained third-party model weights/caches: NOT REDISTRIBUTED
+- credentials/tokens: NOT REDISTRIBUTED
+- original supervisor archive SHA256 retained as provenance only: PASS
+
+Release-manifest file count: 200
+
+The public package supports reproduction of derived analyses and figures.
+A complete from-raw-data rerun requires authorised access to the corresponding private, proprietary or supervisor-supplied source material.

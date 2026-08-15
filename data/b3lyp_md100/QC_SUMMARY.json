@@ -1,0 +1,20 @@
+{
+  "gaussian_archive_sha256": "a21bd1edf5df9795fe620217a56bf383263726d58dab3a4a0c703a15e3db131a",
+  "gaussian_log_count": 100,
+  "all_normal_termination": true,
+  "all_route_b3lyp_631gd_force": true,
+  "all_charge_plus1_singlet": true,
+  "all_78_atoms": true,
+  "all_one_scf_energy": true,
+  "all_force_blocks_78_atoms": true,
+  "all_filename_frames_match_manifest": true,
+  "all_atom_orders_match": true,
+  "all_geometries_match_canonical_after_rigid_alignment": true,
+  "max_geometry_kabsch_rmsd_A": 5.27053479137501e-07,
+  "max_geometry_aligned_atom_deviation_A": 8.775639453885761e-07,
+  "all_model_hashes_match_canonical_xyz": true,
+  "all_model_frames_match_manifest": true,
+  "b3lyp_min_structure_id": 57,
+  "b3lyp_min_filename": "cluster_N16_057_frame05645.xyz",
+  "b3lyp_relative_energy_span_eV": 2.8312323558681207
+}

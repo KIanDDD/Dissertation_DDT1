@@ -1,7 +1,17 @@
 ﻿# Figure-generation scripts
 
-This directory contains selected final dissertation plotting scripts. The central quantitative Results figures (7-11 in the final dissertation numbering) are reproducible directly from the public derived tables under `data/`.
+This directory contains selected final and repository-adapted dissertation plotting scripts.
 
-Repository-adapted scripts change only input/output path handling and final numbering where necessary; they do not change the frozen scientific values or analysis definitions.
+The principal same-configuration energetic-ordering figure is reproduced directly from public derived data using:
 
-Not every illustrative/structural figure is required for scientific reproduction of the benchmark. Where an exact final methods/structural figure script was available locally and contained no restricted dependency, it is retained here as supplementary plotting provenance.
+```bash
+python scripts/figures/make_Figure7_MD100_B3LYP_vs_MLFF_ranks.py --outdir reproduced_figures
+```
+
+The script verifies the 100-structure dataset, the B3LYP and shared pretrained-model minima, and the locked Spearman and Kendall tau-b statistics before plotting.
+
+The remaining scripts reproduce complementary inter-model, path-local and retrospective-prioritisation analyses from public derived tables. Some filenames retain historical figure numbering from earlier dissertation stages; their presence is retained as plotting provenance and does not redefine the final dissertation numbering.
+
+Repository-adapted scripts change only public input/output path handling and presentation where necessary. They do not change frozen scientific values or benchmark definitions.
+
+Illustrative or structural figures are included only where an exact retained script was available and no restricted dependency was required.

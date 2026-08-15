@@ -1,0 +1,4 @@
+model,spearman_rho,spearman_p,kendall_tau_b,kendall_p,top5_overlap_count,top5_overlap_fraction,top10_overlap_count,top10_overlap_fraction,top20_overlap_count,top20_overlap_fraction,b3lyp_min_structure_id,b3lyp_min_filename,rank_of_b3lyp_min_under_model,model_min_structure_id,model_min_filename,b3lyp_rank_of_model_min
+MACE-OFF23-medium,0.9122952295229522,8.882650655242311e-40,0.7535353535353536,1.1421830870377795e-28,5,1.0,8,0.8,16,0.8,57,cluster_N16_057_frame05645.xyz,2,13,cluster_N16_013_frame01209.xyz,2
+AIMNet2 ensemble,0.9585598559855985,3.032244676228991e-55,0.8359595959595961,6.773562957501888e-35,4,0.8,10,1.0,18,0.9,57,cluster_N16_057_frame05645.xyz,2,13,cluster_N16_013_frame01209.xyz,2
+UMA/OMol,0.9573957395739572,1.1460015644854369e-54,0.8327272727272729,1.2218205783996364e-34,5,1.0,9,0.9,18,0.9,57,cluster_N16_057_frame05645.xyz,2,13,cluster_N16_013_frame01209.xyz,2

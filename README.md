@@ -11,7 +11,7 @@ It is **not** a redistribution of the complete private computational project arc
 ## Scientific scope and evidence boundaries
 
 - N16 denotes the finite non-periodic `[tacrineH]+(H2O)16` cluster: 78 atoms, net charge +1. The chloride counterion from the original periodic molecular-dynamics system is omitted from these finite clusters.
-- The 100 MD-derived N16 structures have no common quantum-mechanical labels. Results on this set quantify inter-model agreement/disagreement, not quantum-mechanical accuracy.
+- The 100 MD-derived N16 structures were subsequently evaluated at fixed geometry using B3LYP/6-31G(d). These same-configuration calculations provide a quantum-chemical reference for comparison of relative energetic ordering across the 100-structure screening set. The benchmark assesses energetic-ordering correspondence and is not interpreted as thermodynamic stability or universal model accuracy.
 - The B3LYP benchmark is based on 244 sequential geometries extracted from one unconverged B3LYP/6-31G(d) Gaussian optimisation path. It is a path-local comparison, not an independent validation set.
 - The short AIMNet2 trajectory is a finite-cluster diagnostic, not evidence for bulk aqueous behaviour or validated long-timescale dynamics.
 - Recorded workflow timings used unmatched implementations/hardware conditions and are not a universal MLFF-to-DFT speed-up factor.
@@ -22,6 +22,7 @@ It is **not** a redistribution of the complete private computational project arc
 - `data/n16_xyz/` — 100 fixed-composition N16 XYZ structures used for the MD-derived comparison.
 - `data/hydration/` — public derived hydration/N16-selection tables.
 - `data/inter_model/` — aligned three-model derived comparison tables for the 100-structure dataset.
+- `data/b3lyp_md100/` — derived QC, ranking and summary records for the same-configuration B3LYP/6-31G(d) energetic-ordering benchmark across the 100 MD-derived N16 structures.
 - `data/b3lyp_benchmark/` — selected frozen path-local B3LYP-referenced benchmark tables used in the dissertation.
 - `scripts/hydration_analysis/` — hydration-envelope and candidate-N analysis.
 - `scripts/n16_extraction/` — deterministic N16 extraction and structural QC.
@@ -39,6 +40,7 @@ It is **not** a redistribution of the complete private computational project arc
 The quantitative Results plots can be regenerated without the proprietary/private raw files once the relevant Python packages are installed:
 
 ```bash
+python scripts/figures/make_Figure7_MD100_B3LYP_vs_MLFF_ranks.py --outdir reproduced_figures
 python scripts/figures/make_FINAL_Figures7_8_intermodel_repo.py
 python scripts/figures/make_FINAL_Section3_2_Figures_9_10_PERFECT.py
 python scripts/figures/make_FINAL_Figure11_retrospective_recovery_repo.py

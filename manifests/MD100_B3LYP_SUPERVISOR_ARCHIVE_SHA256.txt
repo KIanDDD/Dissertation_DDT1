@@ -1,0 +1,6 @@
+﻿Supervisor-supplied fixed-geometry B3LYP/6-31G(d) MD100 Gaussian archive.
+
+The original archive is retained privately and is not redistributed in this repository.
+
+SHA256:
+a21bd1edf5df9795fe620217a56bf383263726d58dab3a4a0c703a15e3db131a  gaussian_outputs.tar.gz

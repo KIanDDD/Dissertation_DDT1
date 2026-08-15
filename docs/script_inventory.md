@@ -22,8 +22,11 @@ Only retained/final workflow scripts relevant to the dissertation are included; 
 | Benchmark alignment QC | `scripts/benchmarking/01_validate_benchmark_alignment.py` | Verify step/structure/atom alignment |
 | Locked benchmark | `scripts/benchmarking/02_run_locked_benchmark.py` | Generate the frozen path-local benchmark outputs |
 | Chemical force analysis | `scripts/benchmarking/analyse_chemical_force_groups.py` | Chemically resolved force disagreement/error analysis |
-| Figures 7-8 | `scripts/figures/make_FINAL_Figures7_8_intermodel_repo.py` | Regenerate inter-model energy/force Results figures from public derived tables |
+| Final MD100 Figure 7 | `scripts/figures/make_Figure7_MD100_B3LYP_vs_MLFF_ranks.py` | Reproduce the final B3LYP-versus-MLFF energetic-rank figure from public derived data and verify the locked rank statistics |
+| Secondary inter-model figures | `scripts/figures/make_FINAL_Figures7_8_intermodel_repo.py` | Regenerate the secondary inter-model energy/force comparison; historical script filename retained |
 | Figures 9-10 | `scripts/figures/make_FINAL_Section3_2_Figures_9_10_PERFECT.py` | Regenerate B3LYP path-local energy/force Results figures from public derived tables |
 | Figure 11 | `scripts/figures/make_FINAL_Figure11_retrospective_recovery_repo.py` | Regenerate retrospective recovery figure from public derived table |
 
 Additional self-contained/structural dissertation plotting scripts are retained under `scripts/figures/` where available, but their presence is not required to reproduce the central quantitative benchmark conclusions.
+
+The raw B3LYP100 parsing/QC script is retained in the private project because it consumes the supervisor-supplied Gaussian archive. Public derived QC, ranking and summary records are provided under `data/b3lyp_md100/`.

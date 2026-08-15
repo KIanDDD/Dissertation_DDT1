@@ -1,0 +1,4 @@
+model,spearman_rho,kendall_tau_b,top5_overlap_count,top10_overlap_count,top20_overlap_count,rank_of_b3lyp_min_under_model,b3lyp_rank_of_model_min
+MACE-OFF23-medium,0.9122952295229522,0.7535353535353536,5,8,16,2,2
+AIMNet2 ensemble,0.9585598559855985,0.8359595959595961,4,10,18,2,2
+UMA/OMol,0.9573957395739572,0.8327272727272729,5,9,18,2,2
