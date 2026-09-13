@@ -6,4 +6,4 @@ The MD100 rank script corresponds numerically to final Figure 7, with a differen
 
 `make_intro_figure1_exact.py` creates the milestones schematic but does not reproduce the PDF's narrow typography/placement. `make_intro_figure2_tacrine_tacrinium_FINAL.py` is a historical RDKit/CairoSVG alternative, not the recovered final Figure 3 EMF. `make_figure3_FINAL_NO_OVERFLOW.py` is an earlier workflow schematic, superseded by final Figure 4 with its MD100 B3LYP branch. Historical filenames remain for provenance and compatibility.
 
-The literature Figure 2 is third-party work by Tripathi et al. and has separate CC BY-NC-ND 4.0 conditions. It is linked rather than redistributed. Do not redesign recovered submitted figures or claim an approximate export is exact.
+The literature Figure 2 is third-party work by Tripathi et al. and has separate CC BY-NC-ND 4.0 conditions. The article is linked in the figure archive; its image is not included.

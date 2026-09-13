@@ -1,37 +1,32 @@
 # Tacrine microhydration: dissertation reproducibility
 
-Code, selected derived data and figure-source records supporting Kian Davarpanah's MSc dissertation, *Accelerating Molecular Simulations with MLFFs* (CHE701P, MSc Artificial Intelligence for Drug Discovery, Queen Mary University of London, 2026).
+Code, data and figures for Kian Davarpanah's MSc dissertation, *Accelerating Molecular Simulations with MLFFs* (CHE701P, MSc Artificial Intelligence for Drug Discovery, Queen Mary University of London, 2026).
 
-**Dissertation-cited record: [v1.1.0](https://github.com/KIanDDD/Dissertation_DDT1/releases/tag/v1.1.0).** That fixed release remains unchanged. The current `main` branch adds subsequent documentation, recovered artwork and reproducibility maintenance; these additions are not part of the original release. Use [the v1.1.0 source snapshot](https://github.com/KIanDDD/Dissertation_DDT1/tree/v1.1.0) when you need the exact record cited in the PDF.
+The dissertation cites [release v1.1.0](https://github.com/KIanDDD/Dissertation_DDT1/releases/tag/v1.1.0). Its [source snapshot](https://github.com/KIanDDD/Dissertation_DDT1/tree/v1.1.0) is unchanged. The main branch includes later documentation, figure archives and reproducibility fixes.
 
-## Evidence and authorship
+## Study
 
-The primary benchmark compares electronic-energy ordering across 100 identical, fixed-geometry MD-derived N16 configurations using B3LYP/6-31G(d), MACE-OFF23-medium, a four-member AIMNet2 ensemble and UMA/OMol. N16 is the finite non-periodic +1 cluster [tacrineH]+(H2O)16: 78 atoms, with chloride omitted. The 16 nearest waters are a controlled subset, not the complete 5.325 Å operational hydration envelope, whose modal occupancy is 48 waters.
+The primary benchmark compares B3LYP/6-31G(d) energy rankings with MACE-OFF23-medium, a four-member AIMNet2 ensemble and UMA/OMol for 100 fixed configurations of protonated tacrine with 16 water molecules. A separate benchmark examines energies and forces along a 244-geometry, unconverged Gaussian optimisation path.
 
-The secondary benchmark uses 244 sequential geometries from one unconverged Gaussian optimisation path. Step 227 is its lowest sampled B3LYP geometry, not a confirmed optimised minimum. Path-local force agreement is much weaker than energetic-ordering agreement. B3LYP is a computational reference, not experimental or exact truth.
+Dr Devis Di Tommaso supplied the Gaussian calculations run on QMUL Apocrita. Kian carried out the structure processing, MLFF calculations, analysis and interpretation. [Methods and limitations](docs/reproducibility.md) describe the model settings and scope of the comparisons.
 
-Dr Devis Di Tommaso generated/supplied the Gaussian B3LYP calculations on QMUL Apocrita. Kian performed structure processing, pretrained-model workflows, QC/alignment, benchmarking, statistical analysis, interpretation and reproducibility work.
+## Repository contents
 
-MACE was evaluated without explicit molecular charge/multiplicity input, outside its stated neutral-system applicability boundary. AIMNet2 received charge +1 for all four members. UMA used uma-s-1p2 with task omol, charge +1 and multiplicity 1. The short AIMNet2 NVT/NVE trajectory is a finite-cluster diagnostic. Disagreement-based recovery is retrospective, not calibrated uncertainty or prospective active learning. Timings have no matched B3LYP denominator and do not establish a universal acceleration factor.
+| Folder | Contents |
+|---|---|
+| [data](data/) | 100 N16 structures, hydration analysis, benchmark tables and diagnostic time series |
+| [scripts](scripts/) | Data processing, model inference and plotting scripts |
+| [figures/final_dissertation](figures/final_dissertation/) | Archived dissertation figures and their sources |
+| [environments](environments/) | Recorded software environments and installation requirements for public analysis |
+| [docs](docs/) | Reproduction guide, software versions and figure/script mapping |
+| [manifests](manifests/) | File inventories, checksums and validation records |
 
-## Contents
+## Reproduce the public analysis
 
-- `data/n16_xyz/`: 100 canonical MD-derived configurations.
-- `data/hydration/`: operational-envelope, occupancy and candidate-N tables.
-- `data/inter_model/`: MD100 model-model comparisons.
-- `data/b3lyp_md100/`: primary energetic-ordering benchmark and derived Gaussian QC.
-- `data/b3lyp_benchmark/`: secondary path-local benchmark tables.
-- `data/diagnostic_dynamics/`: retained NVT/NVE time series and provenance notes.
-- `figures/final_dissertation/`: recovered submitted artwork and figure-source manifest. Figure 2 is third-party material and is linked, not redistributed.
-- `scripts/`: original-stage workflows and public derived-data plot reproductions. Some retained filenames use draft figure numbers; the authoritative mapping is in `docs/script_inventory.md`.
-- `environments/`: retained package/model records plus a separately labelled convenience analysis environment.
-- `manifests/`: current public-byte integrity records and clearly distinguished historical private-stage evidence.
-
-## Public numerical reproduction
-
-Use the recorded Gaussian-analysis environment, or the separately labelled convenience environment under `environments/public_analysis/`. From the repository root:
+Use Python 3.11.15 with the [public analysis requirements](environments/public_analysis/README.md). From the repository root:
 
 ```bash
+python -m pip install -r environments/public_analysis/requirements.txt
 python -m compileall -q scripts
 python scripts/validation/check_public_results.py
 python scripts/n16_extraction/qc_N16_xyz.py --input-dir data/n16_xyz
@@ -41,18 +36,14 @@ python scripts/figures/make_FINAL_Section3_2_Figures_9_10_PERFECT.py
 python scripts/figures/make_FINAL_Figure11_retrospective_recovery_repo.py
 ```
 
-These regenerate plots from frozen public numerical inputs. They do not all reproduce the submitted typography, panel arrangement or artwork exactly. Use the recovered assets and provenance map for exact dissertation correspondence. The first rank command writes to `reproduced_figures/`; the other figure commands write ignored output files beside their scripts.
+These commands check the public data and regenerate plots. Plot styling can differ from the submitted figures; the [figure archive](figures/final_dissertation/) contains the recovered document images. The rank plot is written to `reproduced_figures/`; the other plots are written beside their scripts.
 
-## Reproduction boundaries
+Full model calculations and reconstruction of atomic force statistics require additional inputs and model access. Raw Gaussian files, proprietary simulation files and model weights are not included. See the [reproduction guide](docs/reproducibility.md).
 
-Public tables support numerical inspection and selected plot regeneration. Recomputing path-local force errors, ensemble disagreement and recovery from atomic predictions requires retained private-stage inputs; aggregate tables alone do not independently reconstruct every statistic. Full inference also requires third-party model access and compatible environments. Proprietary Schrödinger/Desmond material, raw Gaussian files/checkpoints, weights/caches and complete private archives are excluded. See `docs/reproducibility.md`, `docs/software_versions.md` and `docs/figure_provenance.md`.
+## File verification
 
-## Historical release and integrity
-
-The dissertation cites `v1.1.0`. Its tag and release are preserved unchanged. The repository URL remains https://github.com/KIanDDD/Dissertation_DDT1. Maintenance changes concern reproducibility and documentation; they do not replace the submitted scientific record. The v1.1.0 release checksum list describes Windows working-tree bytes, including two mixed-line-ending files; see `manifests/README.md` for the exact distinction from current canonical bytes.
-
-Verify the current checkout with `python scripts/validation/verify_release.py`. Fresh Windows installation results are recorded in `environments/public_analysis/validation_2026-09-13.json`; final maintenance validation is recorded in `manifests/MAINTENANCE_AUDIT_2026-09-13.txt`. These checks describe the maintained repository. No new numbered release is introduced, and the citation metadata directs readers to the preserved v1.1.0 record.
+Run `python scripts/validation/verify_release.py` to check the current files against their recorded checksums. The [manifest guide](manifests/README.md) explains the coverage, historical records and [validation results](manifests/MAINTENANCE_AUDIT_2026-09-13.txt).
 
 ## Citation and rights
 
-Use `CITATION.cff`. No open-source licence is granted; all rights are reserved unless stated otherwise. Third-party software, models and literature figures retain their own rights and terms.
+[CITATION.cff](CITATION.cff) provides the citation for v1.1.0. All rights are reserved unless stated otherwise. Third-party software, models and literature figures retain their own licences and terms.

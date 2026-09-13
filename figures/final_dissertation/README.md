@@ -1,7 +1,11 @@
-# Submitted dissertation artwork
+# Dissertation figures
 
-Numbering and pages follow the submitted PDF, not historical script filenames. Figures 4-11 were recovered unchanged from the retained dissertation Word file; their pixels match the corresponding PDF embedded image after the crop recorded in FIGURE_MANIFEST.csv. Figure 1 survives as the embedded SVG; an explicitly labelled PDF clip preserves its submitted typography. Figure 3 survives as the embedded EMF and was visually checked against the PDF. These are document-source assets, not newly regenerated high-resolution originals.
+This folder contains figure files recovered from the dissertation documents. Numbering follows the submitted PDF.
 
-Cropping and placement are part of provenance. Do not overwrite retained source assets with a repository plot merely because its data agree. Generator links describe supported provenance candidates and replay results; where exact originating software or an original export cannot be proved, the manifest says so.
+- **Figure 1:** the SVG embedded in the Word document and a PDF excerpt showing its submitted appearance.
+- **Figure 3:** the EMF embedded in the Word document.
+- **Figures 4–11:** images from the Word document, matched to the PDF with the recorded crops.
 
-Figure 2 is reproduced in the dissertation from Tripathi et al., *Unveiling Zwitterionization of Glycine in the Microhydration Limit*, ACS Omega 2021, 6, 12676-12683, DOI 10.1021/acsomega.1c00869. The publisher specifies CC BY-NC-ND 4.0. It is not included here. See https://pubs.acs.org/doi/10.1021/acsomega.1c00869 and https://creativecommons.org/licenses/by-nc-nd/4.0/. The repository rights statement does not apply to that third-party material.
+[FIGURE_MANIFEST.csv](FIGURE_MANIFEST.csv) lists the page, source, format and SHA256 checksum for each file, along with available script and software information. [Figure provenance](../../docs/figure_provenance.md) explains the correspondence between archived images and regenerated plots.
+
+**Figure 2** is from Tripathi et al., *Unveiling Zwitterionization of Glycine in the Microhydration Limit*, ACS Omega 2021, 6, 12676–12683 ([article](https://pubs.acs.org/doi/10.1021/acsomega.1c00869), CC BY-NC-ND 4.0). It is cited here but not included in the archive.

@@ -1,28 +1,35 @@
 # Reproduction guide
 
-## Public inputs and tests
+## Public analysis
 
-Run the commands in the root README using Python 3.11.15 and `environments/public_analysis/requirements.txt`. The four advertised plotting commands, compilation, QC and public numerical assertions passed in a fresh isolated Windows installation on 2026-09-13. They regenerate repository variants from public tables. Exact recovered submitted artwork is separately identified in `figures/final_dissertation/FIGURE_MANIFEST.csv`.
+The [root README](../README.md) lists the numerical checks and four plotting commands. Their requirements are in [public_analysis](../environments/public_analysis/README.md); all commands passed in a fresh Windows Python 3.11.15 environment on 13 September 2026.
 
-MD100 ranks, minima and top-k overlap can be recalculated directly from public absolute energies. Hydration and inter-model plots use public derived tables. The public path force/recovery aggregates are insufficient to independently reconstruct every underlying atomic prediction or ensemble statistic. A full benchmark rerun requires the private corrected Gaussian force table and member/model predictions.
+The public absolute energies allow independent recalculation of MD100 ranks, minima and top-k overlap. Hydration and inter-model plots use the included tables. The path force and recovery tables contain aggregate results; reconstruction from atomic predictions requires the private corrected Gaussian force table and member/model outputs.
 
-## Full retained workflow
+The [figure archive](../figures/final_dissertation/) contains the recovered dissertation images. Regenerated plots can differ in typography, layout and panel arrangement.
 
-Preparation and production MD used Schrödinger 2023-4 (Maestro, LigPrep, Epik, Desmond), OPLS4 and SPC water. Hydration analysis of 9982 readable frames preceded deterministic N16 extraction. Model inference used 100 fixed configurations. Dr Devis Di Tommaso supplied the Gaussian B3LYP/6-31G(d) calculations on QMUL Apocrita. Kian performed downstream processing, QC/alignment, benchmarking and interpretation.
+## Calculation workflow
 
-The separate 244-path Gaussian extraction and benchmark scripts require an explicit copied private stage. They were rerun during the audit: extraction, force-frame rotation, alignment and all ten public benchmark tables passed. No new electronic-structure calculations or full pretrained-model inference were performed. Avoid --overwrite on frozen originals. MACE's MD100 runner and the raw trajectory scripts retain original-stage path assumptions; they are not repository-root commands.
+Preparation and molecular dynamics used Schrödinger 2023-4 (Maestro, LigPrep, Epik and Desmond), OPLS4 and SPC water. Hydration analysis covered 9,982 readable frames before selection of the N16 configurations. Each finite, non-periodic cluster contains protonated tacrine and 16 waters: 78 atoms, charge +1, without chloride. The selected waters are a controlled subset of the 5.325 Å operational hydration envelope, whose modal occupancy was 48 waters.
 
-NVT/NVE diagnostic continuity was checked using retained trajectory coordinates and momenta. The time series contain duplicate initial diagnostic rows, and the reported 340.8 K NVT mean includes them. The thermostat random stream is not fully controlled by the velocity-initialisation seed. Preserve the historical trajectory and summaries; a new stochastic trajectory is not evidence of an exact rerun.
+The primary benchmark compares energy ordering for 100 identical fixed configurations. Dr Devis Di Tommaso supplied the B3LYP/6-31G(d) calculations run on QMUL Apocrita. Kian performed the MLFF calculations, processing, alignment and benchmarking.
 
-## Environment and rights boundaries
+MACE-OFF23-medium was evaluated without an explicit molecular charge input, outside its stated neutral-system scope. AIMNet2 received charge +1 for each of its four members. UMA used `uma-s-1p2`, task `omol`, charge +1 and multiplicity 1.
 
-Retained package records differ between workflows. The convenience analysis environment is newly assembled from recorded versions; its fresh Windows installation passed the recorded public tests. RDKit environments were detected, but exact originating figure environments and a CairoSVG historical version were not established. The final molecular schematic is an embedded EMF. Psi4 MD40 was exploratory and is not a production reference.
+The secondary benchmark uses 244 sequential geometries from an unconverged Gaussian optimisation. Step 227 is the lowest sampled B3LYP geometry, rather than a confirmed optimised minimum. Force agreement is substantially weaker than energy-ordering agreement. B3LYP serves as a computational reference. Recovery analysis is retrospective and does not establish calibrated uncertainty or prospective active-learning performance. The timings lack a matched B3LYP measurement and therefore do not establish a general speedup.
 
-Raw/proprietary inputs, checkpoint files, model weights/caches, credentials and private archives remain excluded. No open-source licence is added. Third-party figures retain separate rights. Preserve v1.1.0 and its repository URL; regenerate current-tree manifests only at the end of approved maintenance.
+## Additional inputs
 
+The Gaussian extraction and path benchmark scripts require the original analysis folder layout and private inputs. Verification in a copied folder reproduced the extraction, force rotation, alignment and all ten public benchmark tables. This did not rerun Gaussian or pretrained-model inference. MACE's MD100 runner and the trajectory readers also retain their original relative paths; see the [script inventory](script_inventory.md).
 
-`python scripts/validation/check_public_results.py` independently asserts the public MD100 energy ranks, minima, overlaps and XYZ hashes, QC summaries, hydration mode, path energy metrics, force/recovery identities and retained diagnostic summaries. Full atomic force/recovery recomputation still requires private inputs. `python scripts/validation/verify_release.py` checks exact current bytes after final manifest generation.
+Raw Gaussian logs and checkpoints, proprietary simulation files and model weights are not distributed here. Model inference requires separate model access and the [recorded software environments](software_versions.md).
 
-Fresh-install results are recorded in `environments/public_analysis/validation_2026-09-13.json`; final clean-clone and integrity results are recorded in `manifests/MAINTENANCE_AUDIT_2026-09-13.txt`. This is subsequent maintenance of the repository, without a new numbered release. `CITATION.cff` identifies the unchanged dissertation-cited v1.1.0 release as the preferred citation, using its verified publication date, 2026-08-15. The maintained main branch and the fixed release are distinct snapshots.
+## Diagnostic dynamics
 
-**UNRESOLVED — EVIDENCE REQUIRED:** exact historical figure environments require original asset-linked package/export records. The recovered document artwork remains independently identified and hashed.
+The short AIMNet2 NVE run starts from the final NVT coordinates and momenta. Both recorded time series include two initial rows; the reported NVT mean of 340.8 K includes them. The velocity-initialisation seed does not fully determine the thermostat random stream, so a new run can produce a different trajectory. These short finite-cluster runs assess numerical behaviour rather than production-dynamics accuracy. Details are in [diagnostic_dynamics](../data/diagnostic_dynamics/README.md).
+
+## Versions and verification
+
+The PDF cites the fixed [v1.1.0 release](https://github.com/KIanDDD/Dissertation_DDT1/releases/tag/v1.1.0), published on 15 August 2026. The main branch contains subsequent maintenance. [CITATION.cff](../CITATION.cff) points to the cited release.
+
+[Validation results](../manifests/MAINTENANCE_AUDIT_2026-09-13.txt) identify the tested commits. [File verification](../manifests/README.md) checks the current checkout against its manifests. The original software used for every submitted figure is not fully documented; the available source information is in [figure provenance](figure_provenance.md).

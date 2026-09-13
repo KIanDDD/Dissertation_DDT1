@@ -1,9 +1,17 @@
-# Environment records
+# Software environments
 
-The original production records are retained under `mace/` (che701p-mace), `aimnet2/` (che701p-aimnet), `uma/` (che701p-uma) and `gaussian_analysis/` (che701p-gaussian-analysis). Their file sets differ because capture differed between workflows. Recorded versions and model provenance are preserved; absent historical exports are not reconstructed and mislabelled as originals.
+For the public data checks and plots, start with [public_analysis](public_analysis/README.md). Its requirements were tested in a fresh Windows Python 3.11.15 environment on 13 September 2026.
 
-`public_analysis/` is a new convenience specification assembled from recorded analysis versions. Both the existing Gaussian-analysis environment and a fresh isolated Windows installation passed the public commands. The fresh installation and validation are recorded under `public_analysis/` with date 2026-09-13. This specification is not the single historical environment for all calculations.
+The other folders contain records from the calculation and analysis environments:
 
-`rdkit_figures/` documents the detected kian-rdkit and my-rdkit-env histories and the distinction between present package inventories and original figure-generation provenance. The originating environment for each exact submitted asset and a historical CairoSVG version remain **UNRESOLVED — EVIDENCE REQUIRED**. An original export/package record tied to the asset is needed. No synthetic historical YAML is supplied.
+| Folder | Purpose |
+|---|---|
+| [mace](mace/) | MACE-OFF23-medium inference |
+| [aimnet2](aimnet2/) | AIMNet2 ensemble inference and diagnostic dynamics |
+| [uma](uma/) | UMA/OMol inference |
+| [gaussian_analysis](gaussian_analysis/) | Gaussian processing and benchmark analysis |
+| [rdkit_figures](rdkit_figures/) | Available environment information for molecular drawing scripts |
 
-The che701p-psi4 MD40 pilot did not provide the final MD100 Gaussian benchmark and is omitted from the production stack. Schrödinger 2023-4 and Gaussian 16 A.03 are documented in `docs/software_versions.md`. The Conda marker file is not an environment; audit runtimes are not dissertation production environments.
+The retained records vary by workflow; some include an environment YAML, while others contain package lists and version checks. The software used to produce every original figure could not be identified from the available records.
+
+See [software versions](../docs/software_versions.md) for the full calculation stack, including Schrödinger 2023-4 and Gaussian 16 A.03.

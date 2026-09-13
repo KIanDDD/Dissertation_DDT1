@@ -2,7 +2,7 @@
 
 The retained NVT and NVE time series support dissertation Section 3.4. NVT ran 1000 steps at 0.25 fs; NVE continued the final coordinates and momenta for 2000 steps at 0.25 fs. The NVE file reports time relative to its own start; add 0.25 ps for continuous time.
 
-Each original time series contains two initial step 0 rows. Preserve them: the reported NVT mean 340.800936 K includes both. Removing the duplicate gives 340.981431 K and would alter the historical summary. NVE drift and range are unchanged by that duplicate. Preserve original observations; do not silently deduplicate.
+Each recorded time series contains two initial step 0 rows. The reported NVT mean, 340.800936 K, includes both. Excluding the duplicate gives 340.981431 K. The files retain the original rows to match the reported summary; the duplicate does not affect the NVE drift or range.
 
 These are finite non-periodic +1 N16 diagnostics with no chloride. They are not evidence of production-dynamics accuracy. The seed controls velocity initialisation; the retained script does not explicitly seed Langevin thermostat noise. A new trajectory need not reproduce these observations exactly.
 

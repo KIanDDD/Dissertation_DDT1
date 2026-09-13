@@ -1,7 +1,14 @@
-# Data availability
+# Data
 
-Public data include 100 canonical N16 XYZ configurations, hydration and candidate-N tables, MD100 inter-model comparisons, derived MD100 Gaussian QC/rank records, selected 244-path benchmark tables and retained diagnostic time series. The primary 100-structure benchmark concerns fixed-geometry energetic ordering. The secondary 244-geometry path is sequential, correlated and unconverged.
+| Folder | Contents |
+|---|---|
+| [n16_xyz](n16_xyz/) | 100 fixed N16 structures used in the MD100 benchmark |
+| [hydration](hydration/) | Hydration-shell counts and candidate cluster sizes |
+| [inter_model](inter_model/) | Comparisons between MLFF predictions |
+| [b3lyp_md100](b3lyp_md100/) | B3LYP energy rankings and Gaussian quality-control summaries |
+| [b3lyp_benchmark](b3lyp_benchmark/) | Energy, force and recovery summaries for the 244-geometry path |
+| [diagnostic_dynamics](diagnostic_dynamics/) | Short AIMNet2 NVT/NVE time series |
 
-Derived QC records document the supervisor-supplied Gaussian calculations. They do not independently prove every raw-file fact without access to the original logs. The private source archive has a separately recorded SHA256. The published path force summaries permit inspection and plotting; recomputing force errors, ensemble spreads and recovery from atomic predictions requires the retained private-stage tables.
+The MD100 benchmark compares fixed-geometry energy ordering. The separate 244-geometry benchmark follows one correlated, unconverged optimisation path.
 
-Proprietary Schrödinger/Desmond files and trajectories, raw Gaussian files/checkpoints, model weights/caches, credentials and full private archives are not redistributed. The zero-force comparator and diagnostic tables preserve the final dissertation's evidence boundaries. No table should be interpreted as thermodynamic populations, calibrated uncertainty or production-dynamics validation.
+The public tables support the numerical checks and plots. Recomputing atomic force errors and ensemble statistics requires the original Gaussian force table and model predictions. Raw Gaussian logs, proprietary trajectories and model weights are not included. Source archive checksums are recorded in [manifests](../manifests/).

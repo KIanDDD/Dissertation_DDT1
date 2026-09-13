@@ -1,7 +1,7 @@
-# che701p-aimnet
+# AIMNet2 environment
 
-Role: four-member charge-aware inference and the short diagnostic trajectory.
+Four-member, charge-aware inference and short diagnostic dynamics.
 
-This folder contains the retained Conda list, pip freeze and Python-version record. These are historical package/provenance records, not evidence that every dependency can still be installed from a live registry. Preserve their recorded versions and do not add synthetic historical files. Model weights and raw private inputs are not included.
+Recorded files: Conda package list, pip freeze and Python version. These records describe the environment captured during the work. Model weights and raw calculation inputs are not included.
 
-See `../../docs/software_versions.md` for execution context and `../../docs/reproducibility.md` for inputs and boundaries.
+See [software versions](../../docs/software_versions.md) and the [reproduction guide](../../docs/reproducibility.md).
