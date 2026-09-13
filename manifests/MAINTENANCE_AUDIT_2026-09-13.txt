@@ -84,3 +84,16 @@ Private raw inputs, model weights, credentials and private archives remain exclu
 The preserved release retains its documented historical Windows-line-ending checksum
 behaviour; current canonical manifests apply to maintained files, not retroactively
 to the unchanged v1.1.0 snapshot.
+
+DOCUMENTATION REVISION — 2026-09-13
+Tested GitHub main commit: cae5a8d6a59294c558a29895d565e2d126ba1600
+Simplified 17 reader-facing documents and checked all 62 relative links.
+Scientific data, code, citation and archived figure files are unchanged.
+Refreshed the two current manifests after the documentation edits.
+A fresh GitHub clone passed all 230 exact file hashes, sizes, coverage and
+uniqueness checks, plus the public numerical assertions; working tree clean.
+All 11 archived artwork checksums were also verified.
+Current file_manifest.csv SHA256: 9936d6535106fbd6dbcda8de93694eb881a1783778671b471330bd43db6f599d
+Current RELEASE_SHA256SUMS.txt SHA256: 2b087fc8dbae0033865583bdc04f65d3ee8045c42f233022f7abb0c3eb4f19eb
+Earlier checksum values in this report refer to the earlier tested snapshot.
+This report-only follow-up changes no file covered by either manifest.
