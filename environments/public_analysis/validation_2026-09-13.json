@@ -1,0 +1,105 @@
+{
+  "time_UTC": "2026-09-13T02:46:36.326806+00:00",
+  "scope": "Freshly installed isolated Windows Python environment; public reproduction and explicitly labelled private baseline check. No new inference, Gaussian or dynamics run.",
+  "python": "3.11.15 | packaged by Anaconda, Inc. | (main, Jun 11 2026, 15:12:53) [MSC v.1942 64 bit (AMD64)]",
+  "versions": {
+    "numpy": "2.4.6",
+    "pandas": "3.0.5",
+    "scipy": "1.17.1",
+    "matplotlib": "3.11.1",
+    "PyYAML": "6.0.2",
+    "jsonschema": "4.23.0"
+  },
+  "release_status": "No new numbered release. The dissertation-cited v1.1.0 remains unchanged; final maintenance metadata is validated separately.",
+  "base_v1_1_0_commit": "6dc9fce15f576323581367100599bc052b701079",
+  "tested_state": "Historical fresh-install validation of the maintenance working tree before its first commit. Final committed clean-clone results are recorded separately in manifests/MAINTENANCE_AUDIT_2026-09-13.txt.",
+  "requirements_sha256": "09e5f41a745332482c6438655c653e024ed8dbb9cc33c96a14d2430e66d7c624",
+  "tests": {
+    "dependency_consistency": {
+      "result": "PASS",
+      "exit_code": 0,
+      "expected_exit_code": 0
+    },
+    "compilation": {
+      "result": "PASS",
+      "exit_code": 0,
+      "expected_exit_code": 0
+    },
+    "canonical_100_XYZ_QC": {
+      "result": "PASS",
+      "exit_code": 0,
+      "expected_exit_code": 0
+    },
+    "public_numerical_assertions": {
+      "result": "PASS",
+      "exit_code": 0,
+      "expected_exit_code": 0
+    },
+    "MD100_rank_plot": {
+      "result": "PASS",
+      "exit_code": 0,
+      "expected_exit_code": 0
+    },
+    "intermodel_plots": {
+      "result": "PASS",
+      "exit_code": 0,
+      "expected_exit_code": 0
+    },
+    "path_energy_force_plots": {
+      "result": "PASS",
+      "exit_code": 0,
+      "expected_exit_code": 0
+    },
+    "retrospective_recovery_plot": {
+      "result": "PASS",
+      "exit_code": 0,
+      "expected_exit_code": 0
+    },
+    "citation_template_schema": {
+      "result": "PASS",
+      "exit_code": 0,
+      "expected_exit_code": 0
+    },
+    "publication_date_guard": {
+      "result": "PASS",
+      "exit_code": 1,
+      "expected_exit_code": 1
+    },
+    "diff_whitespace": {
+      "result": "PASS",
+      "exit_code": 0,
+      "expected_exit_code": 0
+    },
+    "exact_artwork_hashes": {
+      "result": "PASS",
+      "asset_count": 11
+    },
+    "fractional_rank_rejected": {
+      "result": "PASS",
+      "exit_code": 1,
+      "expected_exit_code": 1
+    },
+    "numerical_tampering_rejected": {
+      "result": "PASS",
+      "exit_code": 1,
+      "expected_exit_code": 1
+    },
+    "missing_XYZ_rejected": {
+      "result": "PASS",
+      "exit_code": 1,
+      "expected_exit_code": 1
+    },
+    "coincident_atoms_rejected": {
+      "result": "PASS",
+      "exit_code": 1,
+      "expected_exit_code": 1
+    },
+    "private_zero_force_baseline": {
+      "result": "PASS",
+      "exit_code": 0,
+      "expected_exit_code": 0
+    }
+  },
+  "interpretation": "PASS for a negative test means the invalid input was rejected. The publication_date_guard result records the earlier draft state and is not the final citation test. The final CFF instead prefers the existing v1.1.0 citation with its verified historical publication date. The private baseline test requires a retained input that is not redistributed.",
+  "all_performed_checks_pass": true
+}

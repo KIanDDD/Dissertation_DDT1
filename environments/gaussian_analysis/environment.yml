@@ -1,4 +1,4 @@
-﻿name: che701p-gaussian-analysis
+name: che701p-gaussian-analysis
 channels:
   - defaults
 dependencies:

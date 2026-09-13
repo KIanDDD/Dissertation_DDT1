@@ -58,3 +58,5 @@ temp/
 scripts/figures/Figure*.png
 scripts/figures/Figure*.svg
 scripts/figures/Figure*.pdf
+
+/reproduced_figures/

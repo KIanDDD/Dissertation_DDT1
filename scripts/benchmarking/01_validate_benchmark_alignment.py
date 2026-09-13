@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env python
+#!/usr/bin/env python
 """
 CHE701P benchmark alignment and integrity QC
 =============================================

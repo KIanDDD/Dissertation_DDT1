@@ -1,4 +1,4 @@
-﻿# packages in the recorded CHE701P Conda environment (original local path removed)
+# packages in the recorded CHE701P Conda environment (original local path removed)
 #
 # Name                     Version          Build            Channel
 aimnet                     0.2.0            pypi_0           pypi

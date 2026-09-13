@@ -1,4 +1,4 @@
-﻿Supervisor-supplied fixed-geometry B3LYP/6-31G(d) MD100 Gaussian archive.
+Supervisor-supplied fixed-geometry B3LYP/6-31G(d) MD100 Gaussian archive.
 
 The original archive is retained privately and is not redistributed in this repository.
 

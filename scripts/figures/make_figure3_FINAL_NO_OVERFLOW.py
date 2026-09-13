@@ -254,7 +254,7 @@ def flow_arrow(x1, y1, x2, y2, color=FLOW, lw=1.75, head=11.5, z=10):
     return p
 
 # ================================================================
-# TOP ROW — preserve the original layout the user preferred
+# TOP ROW — common preparation and hydration stages
 # large visual area + compact text, with no nested boxes or clashes
 # ================================================================
 CARD_Y = 0.795

@@ -1,54 +1,28 @@
-﻿# Reproduction guide
+# Reproduction guide
 
-## Two levels of reproducibility
+## Public inputs and tests
 
-### 1. Public derived-data reproduction
+Run the commands in the root README using Python 3.11.15 and `environments/public_analysis/requirements.txt`. The four advertised plotting commands, compilation, QC and public numerical assertions passed in a fresh isolated Windows installation on 2026-09-13. They regenerate repository variants from public tables. Exact recovered submitted artwork is separately identified in `figures/final_dissertation/FIGURE_MANIFEST.csv`.
 
-The public derived tables are sufficient to reproduce the principal quantitative analyses without access to raw proprietary or supervisor-supplied files.
+MD100 ranks, minima and top-k overlap can be recalculated directly from public absolute energies. Hydration and inter-model plots use public derived tables. The public path force/recovery aggregates are insufficient to independently reconstruct every underlying atomic prediction or ensemble statistic. A full benchmark rerun requires the private corrected Gaussian force table and member/model predictions.
 
-The final same-configuration B3LYP energetic-rank figure can be regenerated with:
+## Full retained workflow
 
-```bash
-python scripts/figures/make_Figure7_MD100_B3LYP_vs_MLFF_ranks.py --outdir reproduced_figures
-```
+Preparation and production MD used Schrödinger 2023-4 (Maestro, LigPrep, Epik, Desmond), OPLS4 and SPC water. Hydration analysis of 9982 readable frames preceded deterministic N16 extraction. Model inference used 100 fixed configurations. Dr Devis Di Tommaso supplied the Gaussian B3LYP/6-31G(d) calculations on QMUL Apocrita. Kian performed downstream processing, QC/alignment, benchmarking and interpretation.
 
-Other retained plotting scripts reproduce complementary inter-model, path-local and retrospective-prioritisation analyses:
+The separate 244-path Gaussian extraction and benchmark scripts require an explicit copied private stage. They were rerun during the audit: extraction, force-frame rotation, alignment and all ten public benchmark tables passed. No new electronic-structure calculations or full pretrained-model inference were performed. Avoid --overwrite on frozen originals. MACE's MD100 runner and the raw trajectory scripts retain original-stage path assumptions; they are not repository-root commands.
 
-```bash
-python scripts/figures/make_FINAL_Figures7_8_intermodel_repo.py
-python scripts/figures/make_FINAL_Section3_2_Figures_9_10_PERFECT.py
-python scripts/figures/make_FINAL_Figure11_retrospective_recovery_repo.py
-```
+NVT/NVE diagnostic continuity was checked using retained trajectory coordinates and momenta. The time series contain duplicate initial diagnostic rows, and the reported 340.8 K NVT mean includes them. The thermostat random stream is not fully controlled by the velocity-initialisation seed. Preserve the historical trajectory and summaries; a new stochastic trajectory is not evidence of an exact rerun.
 
-The older inter-model plotting script retains its historical filename. It supports the secondary inter-model analysis and does not define the final dissertation Figure 7.
+## Environment and rights boundaries
 
-### 2. Full from-raw-data workflow
+Retained package records differ between workflows. The convenience analysis environment is newly assembled from recorded versions; its fresh Windows installation passed the recorded public tests. RDKit environments were detected, but exact originating figure environments and a CairoSVG historical version were not established. The final molecular schematic is an embedded EMF. Psi4 MD40 was exploratory and is not a production reference.
 
-The complete scientific workflow proceeded in this order:
+Raw/proprietary inputs, checkpoint files, model weights/caches, credentials and private archives remain excluded. No open-source licence is added. Third-party figures retain separate rights. Preserve v1.1.0 and its repository URL; regenerate current-tree manifests only at the end of approved maintenance.
 
-1. Explicit-water Desmond trajectory generation and processing.
-2. Hydration analysis and deterministic fixed-composition N16 construction/QC.
-3. Fixed-geometry MACE-OFF23, AIMNet2 and UMA/OMol inference on the 100 MD-derived N16 structures.
-4. Fixed-geometry B3LYP/6-31G(d) calculations on the same 100 structures.
-5. Gaussian QC, exact structure alignment and B3LYP-versus-MLFF energetic-rank analysis.
-6. Extraction and orientation correction of the separate 244-geometry Gaussian optimisation path.
-7. Fixed-geometry pretrained-model inference on those 244 geometries.
-8. Path-local B3LYP-referenced energy/force benchmarking, chemically resolved analysis and retrospective disagreement prioritisation.
-9. Dissertation figure generation from frozen derived tables.
 
-Raw Schrödinger/trajectory material, supervisor-supplied Gaussian files and third-party pretrained-model checkpoints are not redistributed.
+`python scripts/validation/check_public_results.py` independently asserts the public MD100 energy ranks, minima, overlaps and XYZ hashes, QC summaries, hydration mode, path energy metrics, force/recovery identities and retained diagnostic summaries. Full atomic force/recovery recomputation still requires private inputs. `python scripts/validation/verify_release.py` checks exact current bytes after final manifest generation.
 
-The private raw B3LYP100 analysis workflow requires the original supervisor-supplied Gaussian archive. Public reproduction therefore begins from the derived QC and ranking records under `data/b3lyp_md100/`.
+Fresh-install results are recorded in `environments/public_analysis/validation_2026-09-13.json`; final clean-clone and integrity results are recorded in `manifests/MAINTENANCE_AUDIT_2026-09-13.txt`. This is subsequent maintenance of the repository, without a new numbered release. `CITATION.cff` identifies the unchanged dissertation-cited v1.1.0 release as the preferred citation, using its verified publication date, 2026-08-15. The maintained main branch and the fixed release are distinct snapshots.
 
-## Recorded environments
-
-- `environments/mace/` — retained MACE environment/model verification records.
-- `environments/aimnet2/` — Conda list, pip freeze and Python-version records.
-- `environments/uma/` — Conda list, pip freeze, Python version, package check and model-provenance records.
-- `environments/gaussian_analysis/` — environment YAML, Conda list, pip freeze, Python version and package check.
-
-The records reflect what was retained during the project and are not artificially normalised into identical file sets. Machine-specific local paths have been removed from public copies.
-
-## Scientific limits
-
-Reproducibility does not widen the evidential scope. The 100 MD-derived structures provide a same-configuration fixed-geometry B3LYP energetic-ordering benchmark. This establishes correspondence in electronic-energy ordering within the sampled configuration space, not thermodynamic free energies or universal MLFF accuracy. The separate 244 Gaussian geometries are sequential and unconverged. N16 is a finite +1 cluster without chloride. Diagnostic dynamics do not validate bulk-water or long-timescale dynamics. Disagreement is not calibrated predictive uncertainty, and unmatched timings do not define a universal MLFF-to-DFT speed-up factor.
+**UNRESOLVED — EVIDENCE REQUIRED:** exact historical figure environments require original asset-linked package/export records. The recovered document artwork remains independently identified and hashed.

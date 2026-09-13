@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env python
+#!/usr/bin/env python
 """
 CHE701P locked B3LYP-referenced numerical benchmark
 ====================================================
@@ -1379,7 +1379,7 @@ def main() -> int:
         for model in model_order
     ]
     plt.boxplot(values, tick_labels=model_order, showfliers=False)
-    plt.ylabel("Per-structure force-vector RMSE (eV Ã…$^{-1}$)")
+    plt.ylabel("Per-structure force-vector RMSE (eV Å$^{-1}$)")
     plt.xticks(rotation=15)
     plt.tight_layout()
     plt.savefig(figure_paths["force_model_png"], dpi=300)
@@ -1394,7 +1394,7 @@ def main() -> int:
     element_pivot = element_pivot.reindex(columns=PRIMARY_MODELS)
     plt.figure(figsize=(7.2, 4.8))
     element_pivot.plot(kind="bar", ax=plt.gca())
-    plt.ylabel("RMS atomic force-vector error (eV Ã…$^{-1}$)")
+    plt.ylabel("RMS atomic force-vector error (eV Å$^{-1}$)")
     plt.xlabel("Element")
     plt.xticks(rotation=0)
     plt.tight_layout()
@@ -1423,8 +1423,8 @@ def main() -> int:
         s=20,
         alpha=0.7,
     )
-    plt.xlabel("AIMNet2 force disagreement RMS (eV Ã…$^{-1}$)")
-    plt.ylabel("AIMNet2 force-vector RMSE vs B3LYP (eV Ã…$^{-1}$)")
+    plt.xlabel("AIMNet2 force disagreement RMS (eV Å$^{-1}$)")
+    plt.ylabel("AIMNet2 force-vector RMSE vs B3LYP (eV Å$^{-1}$)")
     plt.tight_layout()
     plt.savefig(figure_paths["aim_force_png"], dpi=300)
     plt.savefig(figure_paths["aim_force_pdf"])

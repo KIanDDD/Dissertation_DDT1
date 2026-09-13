@@ -1,0 +1,15 @@
+* text=auto eol=lf
+*.png -text
+*.jpg -text
+*.jpeg -text
+*.gif -text
+*.pdf -text
+*.emf -text
+*.docx -text
+*.zip -text
+*.gz -text
+
+# Preserve recovered submitted artwork byte for byte.
+figures/final_dissertation/* -text
+figures/final_dissertation/README.md text eol=lf
+figures/final_dissertation/FIGURE_MANIFEST.csv text eol=lf

@@ -1,4 +1,4 @@
-﻿from pathlib import Path
+from pathlib import Path
 import os
 import numpy as np
 import pandas as pd
@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 from matplotlib.ticker import MultipleLocator
 
 # ============================================================
-# CHE701P â€” FINAL SECTION 3.2 FIGURES 9 AND 10
+# CHE701P — FINAL SECTION 3.2 FIGURES 9 AND 10
 #
 # Figure 9:
 #   (a) B3LYP and pretrained-MLFF relative-energy profiles across
@@ -51,7 +51,7 @@ if len(energy) != 244:
 
 steps = energy["gaussian_step_1based"].astype(int).tolist()
 if steps != list(range(1, 245)):
-    raise ValueError("Gaussian steps are not exactly 1â€“244.")
+    raise ValueError("Gaussian steps are not exactly 1–244.")
 
 ref = energy.loc[energy["gaussian_step_1based"] == 227]
 if len(ref) != 1:
@@ -385,7 +385,7 @@ fig.legend(
 )
 
 fig.supxlabel(
-    r"RMS atomic force-vector error / eV Ã…$^{-1}$",
+    r"RMS atomic force-vector error / eV Å$^{-1}$",
     fontsize=8.5,
     y=0.035,
 )

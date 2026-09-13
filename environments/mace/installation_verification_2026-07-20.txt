@@ -1,4 +1,4 @@
-﻿Python executable: <LOCAL_PATH>
+Python executable: <LOCAL_PATH>
 Python: 3.11.15 | packaged by Anaconda, Inc. | (main, Jun 11 2026, 15:12:53) [MSC v.1942 64 bit (AMD64)]
 Platform: Windows-10-10.0.26200-SP0
 PyTorch: 2.13.0+cpu
