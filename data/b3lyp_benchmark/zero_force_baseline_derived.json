@@ -1,0 +1,14 @@
+{
+  "description": "Zero-force comparator for 244 sequential B3LYP path geometries; derived during audit, not a new historical result.",
+  "n_geometries": 244,
+  "atoms_per_geometry": 78,
+  "units": "eV/angstrom",
+  "component_MAE": 0.07140085795447838,
+  "component_RMSE": 0.18944252499310352,
+  "vector_RMS": 0.32812407840219215,
+  "source_file": "gaussian_path_atomic_forces.csv (private corrected extraction)",
+  "source_sha256": "8f6c01d0d3bdd9eb91d8637e16bda711c26c54ba3d10deb124ca3cc2cc84637a",
+  "formula": "Predict zero; component MAE=mean(abs(F)), component RMSE=sqrt(mean(F**2)), vector RMS=sqrt(mean(sum(F**2,axis=1))).",
+  "dissertation_reference": "Table 6, page 38",
+  "scope": "Path-local baseline only. Frozen three-model tables remain unchanged."
+}
