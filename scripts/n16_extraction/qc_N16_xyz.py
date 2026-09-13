@@ -2,7 +2,11 @@ from pathlib import Path
 from collections import Counter
 import numpy as np
 
-XYZ_DIR = Path("N16_xyz")
+import argparse
+
+parser = argparse.ArgumentParser(description="Check 100 canonical N16 XYZ files.")
+parser.add_argument("--input-dir", type=Path, default=Path("N16_xyz"))
+XYZ_DIR = parser.parse_args().input_dir
 xyz_files = sorted(XYZ_DIR.glob("cluster_N16_*.xyz"))
 
 expected_n_files = 100
@@ -27,7 +31,7 @@ def read_xyz(path):
     return n, comment, elems, np.array(coords, dtype=float)
 
 if len(xyz_files) != expected_n_files:
-    problems.append(f"Expected {expected_n_files} XYZ files, found {len(xyz_files)}")
+    raise SystemExit(f"Expected {expected_n_files} XYZ files, found {len(xyz_files)}")
 
 for path in xyz_files:
     n, comment, elems, coords = read_xyz(path)
@@ -53,7 +57,7 @@ for path in xyz_files:
     # Minimum interatomic distance, excluding self.
     diff = coords[:, None, :] - coords[None, :, :]
     dist = np.sqrt(np.sum(diff * diff, axis=2))
-    dist[dist == 0.0] = np.inf
+    np.fill_diagonal(dist, np.inf)
     min_dist = float(np.min(dist))
     min_pair_distances.append(min_dist)
 

@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env python
+#!/usr/bin/env python
 """
 CHE701P full Gaussian-path MLFF input package
 =============================================
@@ -244,7 +244,7 @@ def main() -> int:
         if position_difference > POSITION_READBACK_TOL_A:
             raise ValueError(
                 f"Gaussian step {gaussian_step}: position read-back difference "
-                f"{position_difference:.3e} Ã… exceeds tolerance."
+                f"{position_difference:.3e} Å exceeds tolerance."
             )
 
         output_index_rows.append(

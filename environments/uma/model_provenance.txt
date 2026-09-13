@@ -1,4 +1,4 @@
-﻿Model API identifier: uma-s-1p2
+Model API identifier: uma-s-1p2
 FairChem task: omol
 Device: CPU
 N16 total charge: +1

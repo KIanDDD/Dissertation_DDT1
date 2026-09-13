@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env python
+#!/usr/bin/env python
 """
 CHE701P corrected Gaussian-path extraction and orientation QC (v3)
 =============================================================
@@ -752,7 +752,7 @@ def main() -> int:
         )
         if not report["checks"]["cclib_coordinates_match_raw_standard"]:
             raise ValueError(
-                f"cclib/raw Standard coordinates differ by {coordinate_max_difference:.3e} Ã…."
+                f"cclib/raw Standard coordinates differ by {coordinate_max_difference:.3e} Å."
             )
 
         # Validate the parsed SCF values using cclib's own documented unit
@@ -815,7 +815,7 @@ def main() -> int:
             report["checks"]["gaussian_steps_are_sequential_1_to_244"]
             and report["checks"]["reported_maximum_steps_are_244"]
         ):
-            raise ValueError("Gaussian step numbering is not the expected 1â€“244 sequence.")
+            raise ValueError("Gaussian step numbering is not the expected 1–244 sequence.")
 
         # Reconstruct the original-axis coordinates at every evaluated SCF point.
         input_coords_bohr = np.empty_like(old_x_bohr)

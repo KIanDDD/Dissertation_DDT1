@@ -1,4 +1,4 @@
-﻿Python: 3.11.15 | packaged by Anaconda, Inc. | (main, Jun 11 2026, 15:12:53) [MSC v.1942 64 bit (AMD64)]
+Python: 3.11.15 | packaged by Anaconda, Inc. | (main, Jun 11 2026, 15:12:53) [MSC v.1942 64 bit (AMD64)]
 numpy: 2.4.6
 scipy: 1.17.1
 pandas: 3.0.5

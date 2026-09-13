@@ -1,4 +1,4 @@
-﻿FILE: compare_mace_aimnet2_uma.py 
+FILE: compare_mace_aimnet2_uma.py
 SHA256 hash of .\01_scripts\compare_mace_aimnet2_uma.py:
 96446d11cb9e97b59d93ccf3ed0e4257d4ec2d41c9f2375aa82c9ccdde54cfb1
 CertUtil: -hashfile command completed successfully.
@@ -46,4 +46,3 @@ FILE: uma_water_smoke_test.py
 SHA256 hash of .\01_scripts\uma_water_smoke_test.py:
 3125d7212fa447bdf6b7c3ce0180c9e961285ddeaf9925d77b4a157ca6bdb1a6
 CertUtil: -hashfile command completed successfully.
-

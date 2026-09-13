@@ -1,4 +1,4 @@
-﻿from pathlib import Path
+from pathlib import Path
 import argparse
 
 import pandas as pd
@@ -79,7 +79,10 @@ def main():
         "aimnet2_rank",
         "uma_omol_rank",
     ]:
-        ranks = set(data[column].astype(int))
+        values = pd.to_numeric(data[column], errors="raise")
+        if values.isna().any() or not values.eq(values.round()).all():
+            raise RuntimeError(f"{column} contains non-integer or missing ranks.")
+        ranks = set(values)
         if ranks != expected_ranks:
             raise RuntimeError(
                 f"{column} does not contain each integer rank from 1 to 100 exactly once."

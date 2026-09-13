@@ -1,4 +1,4 @@
-﻿name: che701p-mace
+name: che701p-mace
 channels:
   - defaults
 dependencies:
