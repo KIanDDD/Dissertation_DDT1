@@ -51,6 +51,28 @@ The three exclusions are documented in manifests/README.md to avoid circular has
 This report may be updated after validating a committed checkout, without changing
 the covered content. Covered-byte changes always require regenerated manifests.
 
+FRESH GITHUB CLONE VALIDATION
+Tested committed snapshot: 1e668115909ba0dfe7d9fbd0d1d69525d6b873cc
+Downloaded from GitHub into a new directory using LF checkout.
+All 13 clean-clone checks passed:
+dependency_consistency: PASS
+compilation: PASS
+canonical_100_XYZ_QC: PASS
+public_numerical_assertions: PASS
+MD100_rank_plot: PASS
+intermodel_plots: PASS
+path_energy_force_plots: PASS
+retrospective_recovery_plot: PASS
+citation_schema_and_fixed_release: PASS
+diff_whitespace: PASS
+exact_artwork_hashes: PASS
+exact_release_checksums: PASS
+clean_working_tree: PASS
+The subsequent report-only commit adds these observed results and changes
+no covered file. Exact hashes are rechecked at the final commit.
+file_manifest.csv SHA256: 62ae6010087e88e187a3cb85ba8c7954ba4294218ca922b5c4a05b391bb3c6c0
+RELEASE_SHA256SUMS.txt SHA256: 4276814200f9bac4cee29504270d5908520980947486b3b21a8ab6c799c52d01
+
 EVIDENCE LIMITATIONS
 This validates public numerical reproduction and plotting on Windows. It does not
 establish full model inference, new Gaussian calculations, other operating systems
