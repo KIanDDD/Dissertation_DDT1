@@ -1,21 +1,7 @@
-﻿# Data availability
+# Data availability
 
-This repository contains selected author-generated derived data and the 100 fixed-composition N16 XYZ structures needed to inspect or regenerate the reported public comparison and figure workflows.
+Public data include 100 canonical N16 XYZ configurations, hydration and candidate-N tables, MD100 inter-model comparisons, derived MD100 Gaussian QC/rank records, selected 244-path benchmark tables and retained diagnostic time series. The primary 100-structure benchmark concerns fixed-geometry energetic ordering. The secondary 244-geometry path is sequential, correlated and unconverged.
 
-## Included
+Derived QC records document the supervisor-supplied Gaussian calculations. They do not independently prove every raw-file fact without access to the original logs. The private source archive has a separately recorded SHA256. The published path force summaries permit inspection and plotting; recomputing force errors, ensemble spreads and recovery from atomic predictions requires the retained private-stage tables.
 
-- `n16_xyz/`: 100 MD-derived `[tacrineH]+(H2O)16` structures (78 atoms each).
-- `hydration/`: hydration-distance, hydration-occupancy, candidate-N distance, selected-frame and N16 manifest tables.
-- `inter_model/`: aligned MACE-OFF23/AIMNet2/UMA comparison tables and observed inference timing records for the 100-structure dataset.
-- `b3lyp_md100/`: derived QC, ranking and summary records for the same-configuration fixed-geometry B3LYP/6-31G(d) energetic-ordering benchmark across the 100 MD-derived N16 structures.
-- `b3lyp_benchmark/`: selected frozen derived energy, force, disagreement and prioritisation tables for the separate 244-geometry path-local benchmark.
-
-## Not redistributed
-
-- proprietary Schrödinger/Maestro/Desmond project files and the complete trajectory;
-- supervisor-supplied Gaussian input, output and checkpoint files;
-- third-party pretrained model weights or caches;
-- Hugging Face account/cache records, credentials or tokens;
-- large frozen private project archives.
-
-The public derived data support reproduction of the reported analyses and quantitative figures. A complete from-raw-data rerun additionally requires authorised access to the corresponding proprietary, private or supervisor-supplied source material.
+Proprietary Schrödinger/Desmond files and trajectories, raw Gaussian files/checkpoints, model weights/caches, credentials and full private archives are not redistributed. The zero-force comparator and diagnostic tables preserve the final dissertation's evidence boundaries. No table should be interpreted as thermodynamic populations, calibrated uncertainty or production-dynamics validation.

@@ -1,4 +1,4 @@
-﻿cff-version: 1.2.0
+cff-version: 1.2.0
 message: "If you use this software, please cite it using the metadata below."
 title: "Tacrine microhydration MLFF reproducibility code"
 type: software
@@ -6,7 +6,10 @@ authors:
   - family-names: "Davarpanah"
     given-names: "Kian"
     affiliation: "Queen Mary University of London"
-version: "1.1.0"
+version: "1.1.1"
+# date-released: YYYY-MM-DD
+# RELEASE_DATE_PLACEHOLDER: set the actual publication date before release.
+# UNRESOLVED — EVIDENCE REQUIRED: publication date is not yet known.
 repository-code: "https://github.com/KIanDDD/Dissertation_DDT1"
 url: "https://github.com/KIanDDD/Dissertation_DDT1"
 abstract: >-

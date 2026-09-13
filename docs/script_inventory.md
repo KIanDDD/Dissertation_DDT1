@@ -1,32 +1,35 @@
-﻿# Script inventory
+# Script inventory
 
-Only retained/final workflow scripts relevant to the dissertation are included; superseded exploratory copies are intentionally omitted.
+The submitted PDF and `docs/figure_provenance.md` define final figure numbering. Historical filenames retain their provenance. The table records script roles and interfaces. Original-stage model/trajectory commands require their documented inputs and environments.
 
-| Workflow | Script | Purpose |
-|---|---|---|
-| Hydration analysis | `scripts/hydration_analysis/calculate_rdf_water_counts.py` | Calculate hydration-distance/RDF and water-count records |
-| Hydration analysis | `scripts/hydration_analysis/analyse_microhydration_candidates.py` | Compare candidate fixed water counts used in the N16 decision |
-| N16 construction | `scripts/n16_extraction/extract_N16_clusters.py` | Extract the 16 nearest waters for selected trajectory frames |
-| N16 QC | `scripts/n16_extraction/qc_N16_xyz.py` | Check composition, atom count and exported N16 structures |
-| MACE 100-set | `scripts/mace/run_mace_off_batch_100.py` | Fixed-geometry MACE-OFF23 inference on 100 N16 structures |
-| AIMNet2 100-set | `scripts/aimnet2/run_aimnet2_batch_100.py` | AIMNet2 fixed-geometry inference on 100 N16 structures |
-| AIMNet2 ensemble | `scripts/aimnet2/analyse_aimnet2_ensemble.py` | Combine/analyse member-level predictions |
-| AIMNet2 dynamics | `scripts/aimnet2/run_aimnet2_diagnostic_md.py` | Short finite-cluster NVT/NVE diagnostic |
-| UMA 100-set | `scripts/uma/uma_batch_100.py` | UMA/OMol fixed-geometry inference on 100 N16 structures |
-| Three-model comparison | `scripts/uma/compare_mace_aimnet2_uma.py` | Construct aligned three-model comparison records |
-| Gaussian path extraction | `scripts/gaussian_analysis/02_extract_gaussian_path_corrected_v3.py` | Extract/orientation-correct the Gaussian reference path; private raw input required |
-| Gaussian path inputs | `scripts/gaussian_analysis/04_prepare_full_gaussian_path_inputs.py` | Prepare geometry-only inputs for 244 fixed-geometry evaluations |
-| MACE path | `scripts/mace/run_mace_gaussian_full_244.py` | MACE inference on corrected 244-geometry path |
-| AIMNet2 path | `scripts/aimnet2/run_aimnet2_gaussian_full_244_ensemble.py` | Four-member AIMNet2 inference on the 244 geometries |
-| UMA path | `scripts/uma/run_uma_gaussian_full_244.py` | UMA/OMol inference on the 244 geometries |
-| Benchmark alignment QC | `scripts/benchmarking/01_validate_benchmark_alignment.py` | Verify step/structure/atom alignment |
-| Locked benchmark | `scripts/benchmarking/02_run_locked_benchmark.py` | Generate the frozen path-local benchmark outputs |
-| Chemical force analysis | `scripts/benchmarking/analyse_chemical_force_groups.py` | Chemically resolved force disagreement/error analysis |
-| Final MD100 Figure 7 | `scripts/figures/make_Figure7_MD100_B3LYP_vs_MLFF_ranks.py` | Reproduce the final B3LYP-versus-MLFF energetic-rank figure from public derived data and verify the locked rank statistics |
-| Secondary inter-model figures | `scripts/figures/make_FINAL_Figures7_8_intermodel_repo.py` | Regenerate the secondary inter-model energy/force comparison; historical script filename retained |
-| Figures 9-10 | `scripts/figures/make_FINAL_Section3_2_Figures_9_10_PERFECT.py` | Regenerate B3LYP path-local energy/force Results figures from public derived tables |
-| Figure 11 | `scripts/figures/make_FINAL_Figure11_retrospective_recovery_repo.py` | Regenerate retrospective recovery figure from public derived table |
-
-Additional self-contained/structural dissertation plotting scripts are retained under `scripts/figures/` where available, but their presence is not required to reproduce the central quantitative benchmark conclusions.
-
-The raw B3LYP100 parsing/QC script is retained in the private project because it consumes the supervisor-supplied Gaussian archive. Public derived QC, ranking and summary records are provided under `data/b3lyp_md100/`.
+| Script | Role, interface and limitations |
+|---|---|
+| scripts/aimnet2/analyse_aimnet2_ensemble.py | Four-member MD100 analysis; sample energy SD (ddof=1), population RMS force spread. Inputs are private model predictions. This is not calibrated uncertainty. |
+| scripts/aimnet2/run_aimnet2_batch_100.py | Single-member inference; run once per declared member with charge +1. Third-party model access is required. No full inference rerun was performed in the audit. |
+| scripts/aimnet2/run_aimnet2_diagnostic_md.py | Historical Langevin NVT diagnostic only. The seed fixes initial velocities, not an explicitly supplied thermostat random stream. Historical duplicate step 0 rows and summaries are retained. |
+| scripts/aimnet2/run_aimnet2_gaussian_full_244_ensemble.py | Four-member path inference with charge +1, ordered aliases, hash/shape checks and population spread. Per-member immutable checkpoint hashes are not all established. |
+| scripts/aimnet2/run_aimnet2_nve_energy_test.py | Unchanged retained NVE runner. Continues final NVT coordinates and momenta using Velocity-Verlet; finite-cluster numerical diagnostic only. |
+| scripts/benchmarking/01_validate_benchmark_alignment.py | Private 244-path alignment QC. Copied-stage audit execution passed. Frozen input IDs are integral; arbitrary future malformed-ID hardening is outside this maintenance scope. |
+| scripts/benchmarking/02_run_locked_benchmark.py | Private locked path analysis; all ten public tables reproduced in audit. Unit strings are repaired. Frozen recovery uses nominal budget fractions. The zero-force comparator is a separate derived record. |
+| scripts/benchmarking/analyse_chemical_force_groups.py | Earlier two-model MD100 inter-model force analysis; requires its private aligned schema. It is not a path-local B3LYP force-error calculation. |
+| scripts/benchmarking/derive_zero_force_baseline.py | Verifies the private corrected-force source hash and recomputes the path-local zero-force baseline. Public derived record is separately labelled. |
+| scripts/figures/make_FINAL_Figure11_retrospective_recovery_repo.py | Public numerical variant for final Figure11; actual-count random line. Palette, legend and layout differ from archived submitted artwork. |
+| scripts/figures/make_FINAL_Figures7_8_intermodel_repo.py | Historical parity output labelled Figure7 is not final Figure7. Its one-panel Figure8 is a public variant; submitted Figure8 has element and nitrogen-site panels. |
+| scripts/figures/make_FINAL_Section3_2_Figures_9_10_PERFECT.py | Public Figure9/10 numerical reproduction with repaired Å labels. Embedded submitted aspect ratio/typography remain separately archived. |
+| scripts/figures/make_Figure7_MD100_B3LYP_vs_MLFF_ranks.py | Public final-Figure7 rank data reproduction with strict integral ranks and minima assertions. Plot styling differs from the submitted asset. |
+| scripts/figures/make_figure3_FINAL_NO_OVERFLOW.py | Earlier workflow schematic with draft numbering, superseded by submitted Figure4 and its MD100 B3LYP branch. Conversational comment removed; diagram not redesigned. |
+| scripts/figures/make_intro_figure1_exact.py | Milestones schematic candidate; its name does not establish exact final typography. Archived SVG and labelled PDF clip preserve the submitted evidence. |
+| scripts/figures/make_intro_figure2_tacrine_tacrinium_FINAL.py | Earlier molecular alternative, not the proved generator of submitted Figure3 EMF. It imports CairoSVG, whose historical installation/version is unresolved. Not an advertised final reproduction command. |
+| scripts/gaussian_analysis/02_extract_gaussian_path_corrected_v3.py | Final private Gaussian extraction and force rotation; copied-stage replay passed. Two message strings repaired. Scientific extraction/alignment logic is retained. |
+| scripts/gaussian_analysis/04_prepare_full_gaussian_path_inputs.py | Final private 244-geometry input preparation with source/hash/shape checks. Repaired unit message. Use a fresh copied stage; --overwrite must not target original frozen outputs. |
+| scripts/hydration_analysis/analyse_microhydration_candidates.py | Original-stage candidate-N analysis with private relative-layout assumptions. Early decision prose is historical; final N16 remains a controlled subset. |
+| scripts/hydration_analysis/calculate_rdf_water_counts.py | Original proprietary trajectory reader; orthorhombic minimum-image convention matches recorded system. Earlier peak search reports 4.475 Å; final plot peak 4.875 Å, with the same 5.325 Å operational cutoff. |
+| scripts/mace/run_mace_gaussian_full_244.py | Final path inference with input hash/shape checks; no explicit molecular-charge input. Retain MACE neutral-system applicability caveat. |
+| scripts/mace/run_mace_off_batch_100.py | Original-layout MD100 inference runner. Relocated relative paths are not a repository-root reproduction interface. Use retained original stage; no CLI refactor is claimed. |
+| scripts/n16_extraction/extract_N16_clusters.py | Original proprietary trajectory extraction. Preserves nearest-water selection, atom order and finite-cluster construction; original working-directory layout required. |
+| scripts/n16_extraction/qc_N16_xyz.py | Public --input-dir option; requires 100 structures; excludes only self-distances and reports missing/coincident inputs. Actual 100 canonical structures pass. |
+| scripts/uma/compare_mace_aimnet2_uma.py | Three-model MD100 comparison with one-to-one alignment and hash/order checks. Energy-only N/A force fields are meaningful. |
+| scripts/uma/run_uma_gaussian_full_244.py | Final path inference; uma-s-1p2, omol, CPU, seed 701, charge +1 and spin 1. Input hash/order and shape checks retained. |
+| scripts/uma/uma_batch_100.py | MD100 inference. Use fresh output directories. Historical --resume does not fully validate hash/model/charge/spin and is not recommended for reproduction. |
+| scripts/validation/check_public_results.py | Read-only public numerical assertions from absolute energies, ranks, hashes and derived tables. It cannot reconstruct private atomic predictions from aggregate tables. |
+| scripts/validation/verify_release.py | Default read-only exact-byte/scope verifier. Explicit --write-from-index generates current manifests from reviewed staged blobs only, last in approved maintenance. |

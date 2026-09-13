@@ -1,10 +1,9 @@
 # Integrity records
 
-Project files and structures were tracked using SHA256 hashes. Public release integrity files belong here.
+The current public-byte records are `manifests/file_manifest.csv` and `manifests/RELEASE_SHA256SUMS.txt`. Their precise scope is every tracked file except those two files and `manifests/PUBLIC_RELEASE_AUDIT_v1.1.1.txt`. The two manifests cannot include themselves without circular hashes; the end-of-validation report is excluded because it records verification of the final covered commit. Historical v1.0.0/v1.1.0 audit records are included as ordinary retained content.
 
-Two frozen private benchmark packages were recorded as:
+Generate current records only after reviewed content and release metadata are final: `python scripts/validation/verify_release.py --write-from-index` reads exact staged Git blobs. Commit the resulting manifests and run `python scripts/validation/verify_release.py` in a fresh LF clone. Verification hashes actual bytes without silently normalising them. Check scope, uniqueness, sizes and every SHA256. If a covered byte changes, regenerate and verify again.
 
-- `benchmark_alignment_QC_FROZEN_20260805.zip`: `aa10d986c560dcf5fa59ed93ef1c8f605d347dfa31de135efdd5ee1482b381b2`
-- `LOCKED_B3LYP_BENCHMARK_20260805.zip`: `b9baa41f656777c47b66b216b48033f6afe9f8794084fe3ccf2c080f73e05819`
+The dissertation-cited v1.1.0 tag remains unchanged. Its 200 recorded hashes describe Windows working-tree bytes:198 files used CRLF throughout; `MD100_B3LYP_SUPERVISOR_ARCHIVE_SHA256.txt` and `make_Figure7_MD100_B3LYP_vs_MLFF_ranks.py` used LF internally and CRLF only at the final newline. All original hashes were explained and their text/data content matched. A clean LF clone therefore fails that historical list. This is not corrected by rewriting historical evidence.
 
-The private ZIP archives themselves are not distributed in this repository. Retain the original hash-record text files if appropriate, and generate a separate checksum manifest for the public `v1.0.0` repository contents before release.
+The frozen extraction/alignment/benchmark manifests refer to private-stage products. Five named original private archives were verified locally and remain excluded from GitHub. Their recorded hashes are preserved. A current UTF-8/LF representation of a text record is distinguished from its original bytes at v1.1.0. No embedded historical hash is recomputed to conceal normalisation.

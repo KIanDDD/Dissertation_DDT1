@@ -1,77 +1,56 @@
-﻿# Tacrine microhydration MLFF reproducibility code
+# Tacrine microhydration: dissertation reproducibility
 
-Author-developed analysis and reproducibility code supporting the MSc dissertation **Accelerating Molecular Simulations with MLFFs** (CHE701P, MSc Artificial Intelligence for Drug Discovery, Queen Mary University of London, 2026).
+Code, selected derived data and figure-source records supporting Kian Davarpanah's MSc dissertation, *Accelerating Molecular Simulations with MLFFs* (CHE701P, MSc Artificial Intelligence for Drug Discovery, Queen Mary University of London, 2026).
 
-## Scope
+## Evidence and authorship
 
-This repository documents the author-developed computational workflow used to evaluate pretrained machine-learned force fields for protonated tacrine microhydration. It contains selected derived data, fixed-composition N16 structures, analysis/inference scripts, software-environment records, integrity manifests and repository-adapted plotting scripts.
+The primary benchmark compares electronic-energy ordering across 100 identical, fixed-geometry MD-derived N16 configurations using B3LYP/6-31G(d), MACE-OFF23-medium, a four-member AIMNet2 ensemble and UMA/OMol. N16 is the finite non-periodic +1 cluster [tacrineH]+(H2O)16: 78 atoms, with chloride omitted. The 16 nearest waters are a controlled subset, not the complete 5.325 Å operational hydration envelope, whose modal occupancy is 48 waters.
 
-It is **not** a redistribution of the complete private computational project archive.
+The secondary benchmark uses 244 sequential geometries from one unconverged Gaussian optimisation path. Step 227 is its lowest sampled B3LYP geometry, not a confirmed optimised minimum. Path-local force agreement is much weaker than energetic-ordering agreement. B3LYP is a computational reference, not experimental or exact truth.
 
-## Scientific scope and evidence boundaries
+Dr Devis Di Tommaso generated/supplied the Gaussian B3LYP calculations on QMUL Apocrita. Kian performed structure processing, pretrained-model workflows, QC/alignment, benchmarking, statistical analysis, interpretation and reproducibility work.
 
-- N16 denotes the finite non-periodic `[tacrineH]+(H2O)16` cluster: 78 atoms, net charge +1. The chloride counterion from the original periodic molecular-dynamics system is omitted from these finite clusters.
-- The 100 MD-derived N16 structures were subsequently evaluated at fixed geometry using B3LYP/6-31G(d). These same-configuration calculations provide a quantum-chemical reference for comparison of relative energetic ordering across the 100-structure screening set. The benchmark assesses energetic-ordering correspondence and is not interpreted as thermodynamic stability or universal model accuracy.
-- The B3LYP benchmark is based on 244 sequential geometries extracted from one unconverged B3LYP/6-31G(d) Gaussian optimisation path. It is a path-local comparison, not an independent validation set.
-- The short AIMNet2 trajectory is a finite-cluster diagnostic, not evidence for bulk aqueous behaviour or validated long-timescale dynamics.
-- Recorded workflow timings used unmatched implementations/hardware conditions and are not a universal MLFF-to-DFT speed-up factor.
-- Disagreement-based recovery was evaluated retrospectively using already-known B3LYP-referenced errors; it is not calibrated predictive uncertainty or prospective active learning.
+MACE was evaluated without explicit molecular charge/multiplicity input, outside its stated neutral-system applicability boundary. AIMNet2 received charge +1 for all four members. UMA used uma-s-1p2 with task omol, charge +1 and multiplicity 1. The short AIMNet2 NVT/NVE trajectory is a finite-cluster diagnostic. Disagreement-based recovery is retrospective, not calibrated uncertainty or prospective active learning. Timings have no matched B3LYP denominator and do not establish a universal acceleration factor.
 
-## Repository structure
+## Contents
 
-- `data/n16_xyz/` — 100 fixed-composition N16 XYZ structures used for the MD-derived comparison.
-- `data/hydration/` — public derived hydration/N16-selection tables.
-- `data/inter_model/` — aligned three-model derived comparison tables for the 100-structure dataset.
-- `data/b3lyp_md100/` — derived QC, ranking and summary records for the same-configuration B3LYP/6-31G(d) energetic-ordering benchmark across the 100 MD-derived N16 structures.
-- `data/b3lyp_benchmark/` — selected frozen path-local B3LYP-referenced benchmark tables used in the dissertation.
-- `scripts/hydration_analysis/` — hydration-envelope and candidate-N analysis.
-- `scripts/n16_extraction/` — deterministic N16 extraction and structural QC.
-- `scripts/mace/`, `scripts/aimnet2/`, `scripts/uma/` — pretrained-model inference/analysis scripts.
-- `scripts/gaussian_analysis/` — Gaussian-path extraction/preparation scripts; these require the non-redistributed private stage path as an explicit argument.
-- `scripts/benchmarking/` — alignment QC and locked benchmark scripts; these require the private benchmark stage for a full rerun.
-- `scripts/figures/` — selected final/repository-adapted dissertation plotting scripts, including the quantitative Results figures reproducible from public derived tables.
-- `environments/` — recorded Conda/Python/package information from the environments used during the project.
-- `manifests/` — integrity records and final public-release SHA256 manifests.
-- `docs/script_inventory.md` — script-to-purpose map.
-- `docs/reproducibility.md` — reproduction guide and public/private input boundary.
+- `data/n16_xyz/`: 100 canonical MD-derived configurations.
+- `data/hydration/`: operational-envelope, occupancy and candidate-N tables.
+- `data/inter_model/`: MD100 model-model comparisons.
+- `data/b3lyp_md100/`: primary energetic-ordering benchmark and derived Gaussian QC.
+- `data/b3lyp_benchmark/`: secondary path-local benchmark tables.
+- `data/diagnostic_dynamics/`: retained NVT/NVE time series and provenance notes.
+- `figures/final_dissertation/`: recovered submitted artwork and figure-source manifest. Figure 2 is third-party material and is linked, not redistributed.
+- `scripts/`: original-stage workflows and public derived-data plot reproductions. Some retained filenames use draft figure numbers; the authoritative mapping is in `docs/script_inventory.md`.
+- `environments/`: retained package/model records plus a separately labelled convenience analysis environment.
+- `manifests/`: current public-byte integrity records and clearly distinguished historical private-stage evidence.
 
-## Quick reproduction from public derived data
+## Public numerical reproduction
 
-The quantitative Results plots can be regenerated without the proprietary/private raw files once the relevant Python packages are installed:
+Use the recorded Gaussian-analysis environment, or the separately labelled convenience environment under `environments/public_analysis/`. From the repository root:
 
 ```bash
+python -m compileall -q scripts
+python scripts/validation/check_public_results.py
+python scripts/n16_extraction/qc_N16_xyz.py --input-dir data/n16_xyz
 python scripts/figures/make_Figure7_MD100_B3LYP_vs_MLFF_ranks.py --outdir reproduced_figures
 python scripts/figures/make_FINAL_Figures7_8_intermodel_repo.py
 python scripts/figures/make_FINAL_Section3_2_Figures_9_10_PERFECT.py
 python scripts/figures/make_FINAL_Figure11_retrospective_recovery_repo.py
 ```
 
-These scripts include checks on structure counts, step numbering and locked numerical values before plotting.
+These regenerate plots from frozen public numerical inputs. They do not all reproduce the submitted typography, panel arrangement or artwork exactly. Use the recovered assets and provenance map for exact dissertation correspondence. The first rank command writes to `reproduced_figures/`; the other figure commands write ignored output files beside their scripts.
 
-## Full workflow reproduction
+## Reproduction boundaries
 
-A complete from-raw-data rerun additionally requires materials that cannot be redistributed here, including the Schrödinger/Desmond trajectory/project files, pretrained third-party model checkpoints/caches and the supervisor-supplied Gaussian files. The retained raw-stage scripts therefore require those inputs to be supplied separately. See `docs/reproducibility.md`.
+Public tables support numerical inspection and selected plot regeneration. Recomputing path-local force errors, ensemble disagreement and recovery from atomic predictions requires retained private-stage inputs; aggregate tables alone do not independently reconstruct every statistic. Full inference also requires third-party model access and compatible environments. Proprietary Schrödinger/Desmond material, raw Gaussian files/checkpoints, weights/caches and complete private archives are excluded. See `docs/reproducibility.md`, `docs/software_versions.md` and `docs/figure_provenance.md`.
 
-## Computational environments
+## Historical release and integrity
 
-Separate local environments were used for MACE-OFF23 (`che701p-mace`), AIMNet2 (`che701p-aimnet`), UMA/OMol (`che701p-uma`) and Gaussian-path analysis (`che701p-gaussian-analysis`). Recorded package inventories are retained under `environments/`. Local machine paths have been removed from the public copies.
+The dissertation cites `v1.1.0`. Its tag and release are preserved unchanged. The repository URL remains https://github.com/KIanDDD/Dissertation_DDT1. Maintenance changes concern reproducibility and documentation; they do not replace the submitted scientific record. The v1.1.0 release checksum list describes Windows working-tree bytes, including two mixed-line-ending files; see `manifests/README.md` for the exact distinction from current canonical bytes.
 
-## Integrity
+Verify the current checkout with `python scripts/validation/verify_release.py`. Fresh Windows installation results are recorded in `environments/public_analysis/validation_2026-09-13.json`; final clean-clone results are in `manifests/PUBLIC_RELEASE_AUDIT_v1.1.1.txt`. This maintenance branch is awaiting review. Its citation publication-date placeholder must be resolved and checksums regenerated before a release is approved.
 
-SHA256 hashes were used throughout the project for file/structure identity and frozen benchmark provenance. The final public package contains a path-portable `manifests/file_manifest.csv` and `manifests/RELEASE_SHA256SUMS.txt`, generated only after the public-release audit passes.
+## Citation and rights
 
-## Data and redistribution restrictions
-
-This repository does not redistribute proprietary Schrödinger files, the complete Desmond trajectory, raw supervisor-supplied Gaussian files/checkpoints, pretrained model weights, Hugging Face caches/account records, credentials, or full private project archives.
-
-## Citation
-
-Citation metadata are provided in `CITATION.cff`.
-
-## Dissertation
-
-Kian Davarpanah, *Accelerating Molecular Simulations with MLFFs*, MSc Artificial Intelligence for Drug Discovery, Queen Mary University of London, 2026.
-
-## Licence
-
-No open-source licence is granted in this dissertation release. All rights are reserved unless stated otherwise. Third-party software and models remain subject to their own licences and terms.
+Use `CITATION.cff`. No open-source licence is granted; all rights are reserved unless stated otherwise. Third-party software, models and literature figures retain their own rights and terms.
