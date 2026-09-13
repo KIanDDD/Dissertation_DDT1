@@ -6,6 +6,8 @@ Figures 4–11 are unchanged media from the retained dissertation Word document.
 
 The exact original package state for figure production is **UNRESOLVED — EVIDENCE REQUIRED**. Recorded audit replay environments establish that retained candidate scripts run, not that they produced the original embedded assets. A dated package/export record tied to each original asset would resolve that distinction. Current Conda inventories are not represented as historical snapshots.
 
+The comparison statuses below and in the figure manifest record the audit of the original v1.1.0 scripts against submitted artwork. Subsequent maintenance repairs the corrupted unit labels in the current path plotting script; it does not change the archived artwork or retroactively alter those historical audit observations. See `docs/script_inventory.md` for current script behaviour.
+
 | Figure | PDF page | Asset | Provenance / public reproduction |
 |---|---|---|---|
 | 1 | 10 | Figure01_MLFF_evolution.svg | Exact Word relationship/source format; submitted appearance visually checked; NO exact export identity demonstrated; MEANINGFULLY DIFFERENT typography/placement from public script; recover exact PDF clip |

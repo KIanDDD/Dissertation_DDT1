@@ -1,0 +1,64 @@
+DISSERTATION REPOSITORY MAINTENANCE VALIDATION — 2026-09-13
+
+Repository: https://github.com/KIanDDD/Dissertation_DDT1
+Dissertation-cited release: v1.1.0
+Fixed v1.1.0 commit: 6dc9fce15f576323581367100599bc052b701079
+Verified original release publication date: 2026-08-15
+Scope: subsequent repository maintenance, without a new numbered release.
+The dissertation PDF and its v1.1.0 reference remain unchanged.
+CITATION.cff passes the official 1.2.0 schema and prefers the fixed v1.1.0
+release. It does not label the maintained tree as that original snapshot.
+
+COMPLETED MAINTENANCE
+Recovered submitted artwork with explicit provenance and redistribution boundaries.
+Retained NVT/NVE time series, NVE runner and derived zero-force comparator.
+Corrected coincident-atom QC, integral-rank validation and corrupted unit labels.
+Documented script interfaces, historical environments and public reproduction scope.
+Canonical LF checkout and exact-byte manifest verification.
+Original 125 scientific CSV/XYZ files, including 100 XYZ: byte-for-byte unchanged.
+Recovered artwork: all 11 file hashes matched their provenance manifest.
+
+FRESH ENVIRONMENT AND FINAL WORKING-TREE VALIDATION
+A separate Windows Python 3.11.15 environment was freshly installed on 2026-09-13.
+Package pins and the actual installed freeze are retained in environments/public_analysis/.
+The production environments were not modified.
+Final test record time: 2026-09-13T03:14:56.565004+00:00
+All 16 final working-tree checks passed:
+dependency_consistency: PASS
+compilation: PASS
+canonical_100_XYZ_QC: PASS
+public_numerical_assertions: PASS
+MD100_rank_plot: PASS
+intermodel_plots: PASS
+path_energy_force_plots: PASS
+retrospective_recovery_plot: PASS
+citation_schema_and_fixed_release: PASS
+diff_whitespace: PASS
+exact_artwork_hashes: PASS
+fractional_rank_rejected: PASS
+numerical_tampering_rejected: PASS
+missing_XYZ_rejected: PASS
+coincident_atoms_rejected: PASS
+private_zero_force_baseline: PASS
+Negative-test PASS means invalid input was correctly rejected.
+The private zero-force baseline check used a retained, hash-locked source;
+that source is not redistributed. The public suite uses public derived inputs.
+
+INTEGRITY SCOPE
+Both current manifests cover 230 tracked files by exact SHA256 and byte size.
+233 tracked files include the two manifests and this excluded audit report.
+The three exclusions are documented in manifests/README.md to avoid circular hashes.
+This report may be updated after validating a committed checkout, without changing
+the covered content. Covered-byte changes always require regenerated manifests.
+
+EVIDENCE LIMITATIONS
+This validates public numerical reproduction and plotting on Windows. It does not
+establish full model inference, new Gaussian calculations, other operating systems
+or exact reruns of stochastic dynamics. Full force reconstruction requires private inputs.
+Exact historical figure-generating environments and some original checkpoint hashes
+remain unresolved where documented. Missing provenance has not been invented.
+Figure 2 is identified and linked but its third-party artwork is not redistributed.
+Private raw inputs, model weights, credentials and private archives remain excluded.
+The preserved release retains its documented historical Windows-line-ending checksum
+behaviour; current canonical manifests apply to maintained files, not retroactively
+to the unchanged v1.1.0 snapshot.

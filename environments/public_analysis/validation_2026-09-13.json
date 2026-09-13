@@ -10,9 +10,9 @@
     "PyYAML": "6.0.2",
     "jsonschema": "4.23.0"
   },
-  "release_status": "Not published. CFF date intentionally remains the user-requested placeholder pending publication approval.",
+  "release_status": "No new numbered release. The dissertation-cited v1.1.0 remains unchanged; final maintenance metadata is validated separately.",
   "base_v1_1_0_commit": "6dc9fce15f576323581367100599bc052b701079",
-  "tested_state": "Maintenance working tree before its first commit; final committed clean-clone results are recorded separately in manifests/PUBLIC_RELEASE_AUDIT_v1.1.1.txt.",
+  "tested_state": "Historical fresh-install validation of the maintenance working tree before its first commit. Final committed clean-clone results are recorded separately in manifests/MAINTENANCE_AUDIT_2026-09-13.txt.",
   "requirements_sha256": "09e5f41a745332482c6438655c653e024ed8dbb9cc33c96a14d2430e66d7c624",
   "tests": {
     "dependency_consistency": {
@@ -100,6 +100,6 @@
       "expected_exit_code": 0
     }
   },
-  "interpretation": "PASS for a negative test means the invalid input was rejected. The publication-date guard correctly rejected release readiness; this is not release approval. The private baseline test requires a retained input that is not redistributed.",
+  "interpretation": "PASS for a negative test means the invalid input was rejected. The publication_date_guard result records the earlier draft state and is not the final citation test. The final CFF instead prefers the existing v1.1.0 citation with its verified historical publication date. The private baseline test requires a retained input that is not redistributed.",
   "all_performed_checks_pass": true
 }

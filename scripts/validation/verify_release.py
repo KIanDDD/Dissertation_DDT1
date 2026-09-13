@@ -6,7 +6,7 @@ import hashlib
 import io
 import subprocess
 
-EXCLUDED = {"manifests/file_manifest.csv", "manifests/RELEASE_SHA256SUMS.txt", "manifests/PUBLIC_RELEASE_AUDIT_v1.1.1.txt"}
+EXCLUDED = {"manifests/file_manifest.csv", "manifests/RELEASE_SHA256SUMS.txt", "manifests/MAINTENANCE_AUDIT_2026-09-13.txt"}
 
 
 def main():

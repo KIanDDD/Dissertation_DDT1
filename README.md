@@ -2,6 +2,8 @@
 
 Code, selected derived data and figure-source records supporting Kian Davarpanah's MSc dissertation, *Accelerating Molecular Simulations with MLFFs* (CHE701P, MSc Artificial Intelligence for Drug Discovery, Queen Mary University of London, 2026).
 
+**Dissertation-cited record: [v1.1.0](https://github.com/KIanDDD/Dissertation_DDT1/releases/tag/v1.1.0).** That fixed release remains unchanged. The current `main` branch adds subsequent documentation, recovered artwork and reproducibility maintenance; these additions are not part of the original release. Use [the v1.1.0 source snapshot](https://github.com/KIanDDD/Dissertation_DDT1/tree/v1.1.0) when you need the exact record cited in the PDF.
+
 ## Evidence and authorship
 
 The primary benchmark compares electronic-energy ordering across 100 identical, fixed-geometry MD-derived N16 configurations using B3LYP/6-31G(d), MACE-OFF23-medium, a four-member AIMNet2 ensemble and UMA/OMol. N16 is the finite non-periodic +1 cluster [tacrineH]+(H2O)16: 78 atoms, with chloride omitted. The 16 nearest waters are a controlled subset, not the complete 5.325 Å operational hydration envelope, whose modal occupancy is 48 waters.
@@ -49,7 +51,7 @@ Public tables support numerical inspection and selected plot regeneration. Recom
 
 The dissertation cites `v1.1.0`. Its tag and release are preserved unchanged. The repository URL remains https://github.com/KIanDDD/Dissertation_DDT1. Maintenance changes concern reproducibility and documentation; they do not replace the submitted scientific record. The v1.1.0 release checksum list describes Windows working-tree bytes, including two mixed-line-ending files; see `manifests/README.md` for the exact distinction from current canonical bytes.
 
-Verify the current checkout with `python scripts/validation/verify_release.py`. Fresh Windows installation results are recorded in `environments/public_analysis/validation_2026-09-13.json`; final clean-clone results are in `manifests/PUBLIC_RELEASE_AUDIT_v1.1.1.txt`. This maintenance branch is awaiting review. Its citation publication-date placeholder must be resolved and checksums regenerated before a release is approved.
+Verify the current checkout with `python scripts/validation/verify_release.py`. Fresh Windows installation results are recorded in `environments/public_analysis/validation_2026-09-13.json`; final maintenance validation is recorded in `manifests/MAINTENANCE_AUDIT_2026-09-13.txt`. These checks describe the maintained repository. No new numbered release is introduced, and the citation metadata directs readers to the preserved v1.1.0 record.
 
 ## Citation and rights
 

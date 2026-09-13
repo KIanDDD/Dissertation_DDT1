@@ -1,17 +1,24 @@
 cff-version: 1.2.0
-message: "If you use this software, please cite it using the metadata below."
+message: "For the dissertation's fixed reproducibility record, cite v1.1.0 using preferred-citation below. The current main branch contains subsequent maintenance."
 title: "Tacrine microhydration MLFF reproducibility code"
 type: software
 authors:
   - family-names: "Davarpanah"
     given-names: "Kian"
     affiliation: "Queen Mary University of London"
-version: "1.1.1"
-# date-released: YYYY-MM-DD
-# RELEASE_DATE_PLACEHOLDER: set the actual publication date before release.
-# UNRESOLVED — EVIDENCE REQUIRED: publication date is not yet known.
 repository-code: "https://github.com/KIanDDD/Dissertation_DDT1"
 url: "https://github.com/KIanDDD/Dissertation_DDT1"
+preferred-citation:
+  type: software
+  title: "Tacrine microhydration MLFF reproducibility code"
+  authors:
+    - family-names: "Davarpanah"
+      given-names: "Kian"
+      affiliation: "Queen Mary University of London"
+  version: "1.1.0"
+  date-released: "2026-08-15"
+  repository-code: "https://github.com/KIanDDD/Dissertation_DDT1"
+  url: "https://github.com/KIanDDD/Dissertation_DDT1/releases/tag/v1.1.0"
 abstract: >-
   Author-developed analysis and reproducibility code supporting the CHE701P MSc
   dissertation Accelerating Molecular Simulations with MLFFs, including tacrine
