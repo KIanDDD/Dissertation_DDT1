@@ -1,0 +1,68 @@
+PRE-RELEASE MAINTENANCE BRANCH VALIDATION — proposed v1.1.1
+
+Recorded: 2026-09-13T02:56:48.758102+00:00
+Repository: https://github.com/KIanDDD/Dissertation_DDT1
+Review branch: final-reproducibility-audit
+Status: prepared for review; no merge, release or tag change performed.
+Preserved main and v1.1.0 commit: 6dc9fce15f576323581367100599bc052b701079
+Fresh GitHub clone tested commit: 401da6388543312d6d2799360a529d4bd874c885
+Covered tree was final at that commit. This subsequently added report is excluded
+from both manifests; its addition changes no covered file bytes.
+
+INTEGRITY
+230 covered tracked files: exact SHA256, byte size, scope and uniqueness PASS.
+233 final tracked files including the two manifests and this excluded report.
+file_manifest.csv SHA256: 927381d0730cd5d715656877b579e8e4c193b9fd525c4e159a2686de46da43af
+RELEASE_SHA256SUMS.txt SHA256: 21fca4a800dc257f9a8f240bbcf8355033c6841a0b155bf03f89882b85396d44
+Original 125 scientific CSV/XYZ files, including all 100 XYZ: unchanged exact bytes.
+11 recovered submitted artwork files: all manifest hashes PASS.
+Original v1.1.0 tag and GitHub release retained; no history rewrite.
+
+FRESH INSTALLATION
+A new isolated Windows Python 3.11.15 environment was installed from registry
+packages, with pip --no-cache-dir. The previous production environment was not modified.
+Versions: numpy 2.4.6; pandas 3.0.5; scipy 1.17.1; matplotlib 3.11.1; PyYAML 6.0.2; jsonschema 4.23.0
+See environments/public_analysis/validation_2026-09-13.json and dated pip freeze.
+All 17 performed checks passed, including expected rejection
+of fractional ranks, tampered numerical data, absent XYZ and coincident atoms.
+The separately labelled private zero-force derivation check also passed.
+
+FRESH GITHUB CLONE
+Downloaded the committed review branch into a new directory with LF checkout.
+dependency_consistency: PASS
+compilation: PASS
+canonical_100_XYZ_QC: PASS
+public_numerical_assertions: PASS
+MD100_rank_plot: PASS
+intermodel_plots: PASS
+path_energy_force_plots: PASS
+retrospective_recovery_plot: PASS
+citation_template_schema: PASS
+publication_date_guard: PASS
+diff_whitespace: PASS
+exact_artwork_hashes: PASS
+exact_release_checksums: PASS
+clean_working_tree: PASS
+
+INTERPRETATION AND REMAINING PUBLICATION GATE
+The publication_date_guard PASS means release validation correctly rejected
+the intentionally unresolved CFF publication-date placeholder. It does not mean
+the branch is approved for publication. The CFF template passed the official
+1.2.0 schema; the release check must pass after the actual publication date is set.
+After review and publication authorization: set the actual date, regenerate both
+manifests from the final index, verify a fresh checkout, and obtain final approval
+before merging or publishing. Preserve v1.1.0 throughout.
+
+Public validation covers numerical tables and plot regeneration. No new Gaussian
+calculation, pretrained-model inference or stochastic dynamics run was performed.
+Original figure-producing environment/export provenance remains unresolved where
+documented. No historical package versions or missing checkpoint hashes were invented.
+Figure 2 is identified in the provenance map but its third-party artwork is omitted.
+Private raw inputs, weights, credentials and private archives are not redistributed.
+
+IMPLEMENTATION ADJUSTMENTS TO THE APPROVED OVERLAY
+Updated fresh-install pending statements after actual successful installation.
+Added two dated, sanitized current-environment validation records.
+Removed one trailing space and redundant terminal blank line from UMA script hash
+record formatting; the embedded historical hashes remain unchanged.
+Generated current manifests last and added this factual excluded audit report.
